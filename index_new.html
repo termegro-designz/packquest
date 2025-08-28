@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+    <!-- SEO Meta Tags -->
+    <title>PackQuest Wien | Umzugsunternehmen & Entrümpelung | Jetzt Angebot anfordern</title>
+    <meta name="description" content="✓ Umzugsunternehmen Wien ✓ Entrümpelung ✓ Montage ✓ Seniorenumzüge ✓ Lager-Service. Schnell, zuverlässig, fair. Kostenlose Beratung & Angebot. Jetzt anfragen!" />
+    
+    <!-- Fonts & Styles -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Press+Start+2P&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="game.css" />
+  </head>
+  <body>
+    <header>
+      <div class="container nav">
+        <a class="logo" href="index.html" aria-label="PackQuest Startseite">
+          <span class="logo-mark" aria-hidden="true"></span>
+          <span class="logo-text pixel">PACKQUEST</span>
+        </a>
+        <nav class="nav-links" aria-label="Hauptnavigation">
+          <a href="#leistungen">Leistungen</a>
+          <a href="umzuege.html">Umzüge</a>
+          <a href="entruempelung.html">Entrümpelung</a>
+          <a href="montage.html">Montage</a>
+          <a href="seniorenumzuege.html">Seniorenumzüge</a>
+          <a href="lager-service.html">Lager</a>
+          <a href="wohnungsuebergabe.html">Wohnungsübergabe</a>
+          <a href="kontakt.html">Kontakt</a>
+        </nav>
+        <a class="btn" href="kontakt.html#anfrage">Jetzt Angebot anfordern</a>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero Section -->
+      <section class="hero">
+        <div class="container hero-grid">
+          <div>
+            <div class="eyebrow pixel">Umzug wie aus einem Guss</div>
+            <h1 class="pixel">Dein Umzug. Deine Mission. Stressfrei mit PackQuest.</h1>
+            <p class="sub">Schnell, zuverlässig und fair – mit Plan, Muskelkraft und einem Team, das anpackt. Von Privatumzug bis Firmenumzug, Entrümpelung, Montage und Lager-Service in Wien.</p>
+            <div class="cta-row">
+              <a class="btn" href="kontakt.html#anfrage">Jetzt Angebot anfordern</a>
+              <a class="btn" style="background:transparent;color:var(--color-accent);box-shadow:0 0 0 3px var(--color-accent), 0 6px 0 0 #000;" href="#leistungen">Leistungen ansehen</a>
+            </div>
+          </div>
+          <div style="text-align:center;margin-top:20px;">
+            <img src="so_soll_die_seite_aussehen.jpg" alt="PackQuest Umzug Illustration" style="max-width:300px;border-radius:12px;opacity:0.8;" />
+          </div>
+        </div>
+      </section>
+
+      <!-- Services Section -->
+      <section class="services" id="leistungen">
+        <div class="container">
+          <h2 class="pixel" style="margin:0 0 12px;">Unsere Leistungen in Wien</h2>
+          <p class="sub">Von A bis Z - alles rund um Ihren Umzug, Entrümpelung und mehr.</p>
+          <div class="card-grid" style="margin-top:24px;">
+            <a class="card" href="umzuege.html">
+              <h3 class="pixel">Umzüge</h3>
+              <p>Privat, Firmen, Spezialtransporte in Wien und Umgebung</p>
+            </a>
+            <a class="card" href="entruempelung.html">
+              <h3 class="pixel">Entrümpelung</h3>
+              <p>Haushalt, Keller, Sperrmüll in Wien</p>
+            </a>
+            <a class="card" href="montage.html">
+              <h3 class="pixel">Montage</h3>
+              <p>Möbel- & Küchenmontage Wien</p>
+            </a>
+            <a class="card" href="seniorenumzuege.html">
+              <h3 class="pixel">Seniorenumzüge</h3>
+              <p>Einfühlsam von A–Z in Wien</p>
+            </a>
+            <a class="card" href="lager-service.html">
+              <h3 class="pixel">Lager-Service</h3>
+              <p>Kurz- & Langzeitlagerung Wien</p>
+            </a>
+            <a class="card" href="wohnungsuebergabe.html">
+              <h3 class="pixel">Wohnungsübergabe</h3>
+              <p>B2B-Service für Hausverwaltungen Wien</p>
+            </a>
+          </div>
+          
+          <!-- HIER IST DAS GAME! -->
+          <div class="game-container" style="margin-top:32px;">
+            <div class="game-intro">
+              <h3 class="pixel" style="font-size:16px;">🎮 PackQuest Mini-Game</h3>
+              <p class="muted" style="font-size:14px;">Sammle Kartons, vermeide Stühle - teste deine Reaktion!</p>
+              <button class="btn game-start-btn" onclick="startGame()" style="padding:10px 16px;font-size:14px;">Game starten</button>
+            </div>
+            <div class="game-wrapper" id="gameWrapper" style="display:none;">
+              <canvas id="gameCanvas" width="300" height="200"></canvas>
+              <div class="game-ui">
+                <div class="score pixel" style="font-size:12px;">Score: <span id="score">0</span></div>
+                <div class="boxes pixel" style="font-size:12px;">Kartons: <span id="boxes">0</span>/3</div>
+                <button class="btn-small pixel" onclick="resetGame()">Neustart</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Trust Section -->
+      <section class="trust">
+        <div class="container">
+          <h2 class="pixel" style="margin:0 0 12px;">Warum PackQuest Wien?</h2>
+          <div class="trust-badges">
+            <div class="badge">
+              <div class="pixel">Schnell</div>
+              <div class="muted">Termingerechte Durchführung</div>
+            </div>
+            <div class="badge">
+              <div class="pixel">Zuverlässig</div>
+              <div class="muted">Erfahrenes Team aus Wien</div>
+            </div>
+            <div class="badge">
+              <div class="pixel">Fair</div>
+              <div class="muted">Transparente Preise</div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container footer-grid">
+        <div>
+          <div class="logo" style="margin-bottom:8px;">
+            <span class="logo-mark" aria-hidden="true"></span>
+            <span class="logo-text pixel">PACKQUEST</span>
+          </div>
+          <div class="muted">Ihr Partner für Umzug, Entrümpelung, Montage und Lager in Wien.</div>
+        </div>
+        <div>
+          <div class="pixel" style="margin-bottom:8px;">Kontakt Wien</div>
+          <div class="muted">Tel.: <a href="tel:+431000000">+43 1 000 000</a></div>
+          <div class="muted">E-Mail: <a href="mailto:hallo@packquest.at">hallo@packquest.at</a></div>
+          <div class="muted">Standort: Wien, Österreich</div>
+        </div>
+        <div>
+          <div class="pixel" style="margin-bottom:8px;">Rechtliches</div>
+          <a class="muted" href="impressum.html">Impressum</a><br />
+          <a class="muted" href="datenschutz.html">Datenschutz</a><br />
+          <a class="muted" href="agb.html">AGB</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="game.js"></script>
+    <script src="scripts.js"></script>
+  </body>
+</html>

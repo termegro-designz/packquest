@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://packquest.at/sitemap.xml
+
+# Block access to certain file types (optional)
+Disallow: *.css$
+Disallow: *.js$
+Allow: /*.css$
+Allow: /*.js$
+
+# Crawl-delay
+Crawl-delay: 1

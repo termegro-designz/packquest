@@ -1,0 +1,102 @@
+/* Game Styles */
+.game-container {
+  text-align: center;
+  background: rgba(15, 19, 27, 0.8);
+  border: 3px solid rgba(31,111,235,0.5);
+  border-radius: 15px;
+  padding: 25px;
+  position: relative;
+  max-width: 900px;
+  margin: 30px auto;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.game-intro h3 {
+  margin: 0 0 15px;
+  color: var(--color-accent);
+  font-size: 1.4rem;
+}
+
+.game-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+#gameCanvas {
+  border: 2px solid rgba(255,217,26,0.5);
+  border-radius: 8px;
+  background: #1a1f2e;
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+  width: 800px;
+  height: 500px;
+  max-width: 100%;
+}
+
+.game-ui {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 12px;
+  gap: 12px;
+}
+
+.score, .boxes, .coins {
+  color: var(--color-accent);
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.btn-small {
+  padding: 6px 12px;
+  font-size: 10px;
+  background: var(--color-primary);
+  color: white;
+  border: 2px solid #000;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: transform 120ms ease;
+}
+
+.btn-small:hover {
+  transform: translateY(-1px);
+}
+
+.game-start-btn {
+  margin-top: 12px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .game-container {
+    max-width: 100%;
+    margin: 20px 10px;
+    padding: 15px;
+  }
+  
+  .game-intro h3 {
+    font-size: 1.1rem;
+  }
+  
+  #gameCanvas {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .game-container {
+    margin: 15px 5px;
+    padding: 12px;
+  }
+  
+  .game-intro h3 {
+    font-size: 1rem;
+  }
+  
+  .score, .boxes {
+    font-size: 12px;
+  }
+}

@@ -1,0 +1,442 @@
+/* Performance Optimizations */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-display: swap;
+}
+
+/* Farbvariablen und Grundstil */
+:root {
+  --color-bg: #0b0e14;
+  --color-text: #e6edf3;
+  --color-primary: #1f6feb; /* Blau */
+  --color-accent: #ffd91a;  /* Gelb */
+  --color-hot: #ff2e8b;     /* Pink/Magenta für CTAs */
+  --color-muted: #9aa7b2;
+}
+
+html, body { 
+  height: 100%; 
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  color: var(--color-text);
+  background: var(--color-bg);
+  line-height: 1.6;
+  font-display: swap;
+}
+
+/* Pixel-/Arcade-Touch für Headlines */
+.pixel {
+  font-family: "Press Start 2P", monospace;
+  letter-spacing: 1px;
+  font-display: swap;
+}
+
+/* Performance: will-change für animierte Elemente */
+.btn, .card {
+  will-change: transform;
+}
+
+a { 
+  color: var(--color-text); 
+  text-decoration: none;
+}
+
+a:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+img { 
+  max-width: 100%; 
+  height: auto; 
+  display: block;
+}
+
+.container {
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* Header / Navigation */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: linear-gradient(180deg, rgba(11,14,20,0.98) 0%, rgba(11,14,20,0.9) 100%);
+  border-bottom: 2px solid rgba(31,111,235,0.35);
+  backdrop-filter: blur(6px);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 0;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-mark {
+  width: 34px;
+  height: 34px;
+  background: var(--color-accent);
+  border: 3px solid #000;
+  box-shadow: 0 0 0 3px var(--color-accent), 0 0 0 6px #000;
+}
+
+.logo-text {
+  font-weight: 800;
+  font-size: 22px;
+  color: var(--color-accent);
+  text-shadow: 0 0 8px rgba(255,217,26,0.35);
+}
+
+/* Retro Pixel Navigation */
+.pixel-nav {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  background: linear-gradient(90deg, rgba(31,111,235,0.1), rgba(255,217,26,0.05));
+  border-radius: 12px;
+  padding: 8px;
+  border: 2px solid rgba(31,111,235,0.3);
+  position: relative;
+}
+
+.nav-item {
+  color: rgba(255,255,255,0.9);
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 10px;
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid transparent;
+  background: rgba(15,19,27,0.6);
+}
+
+.nav-item:hover {
+  color: #000;
+  background: linear-gradient(135deg, #ffd91a, #ffed4e);
+  border-color: #ffa500;
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 
+    0 5px 15px rgba(255,217,26,0.4),
+    inset 0 1px 0 rgba(255,255,255,0.3);
+  z-index: 10;
+}
+
+.nav-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s;
+}
+
+.nav-item:hover::before {
+  left: 100%;
+}
+
+.nav-item:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* Pac-Man Navigation Animation */
+@keyframes pacmanChomp {
+  0% { transform: translateX(0) scaleX(1); }
+  50% { transform: translateX(5px) scaleX(-1); }
+  100% { transform: translateX(0) scaleX(1); }
+}
+
+.pixel-nav::after {
+  content: '👾';
+  position: absolute;
+  right: -25px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 16px;
+  animation: pacmanChomp 3s infinite;
+} 
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 18px;
+  font-weight: 700;
+  border-radius: 10px;
+  border: 2px solid #000;
+  box-shadow: 0 0 0 3px var(--color-hot), 0 6px 0 0 #000;
+  background: var(--color-hot);
+  color: #fff;
+  transition: transform 120ms ease, box-shadow 120ms ease;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn:hover { 
+  transform: translateY(-1px); 
+}
+
+.btn:active { 
+  transform: translateY(2px); 
+  box-shadow: 0 0 0 3px var(--color-hot), 0 3px 0 0 #000; 
+}
+
+/* Hero */
+.hero {
+  padding: 56px 0 24px;
+  border-bottom: 2px solid rgba(31,111,235,0.35);
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 28px;
+  align-items: start;
+}
+
+.eyebrow {
+  color: var(--color-primary);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  margin: 10px 0 12px;
+  font-size: clamp(28px, 4vw, 48px);
+  line-height: 1.2;
+}
+
+.sub {
+  color: var(--color-muted);
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.cta-row { 
+  margin-top: 18px; 
+  display: flex; 
+  gap: 14px; 
+  flex-wrap: wrap; 
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 14px;
+  margin-top: 20px;
+}
+
+.card {
+  background: #0f131b;
+  border: 2px solid rgba(31,111,235,0.45);
+  border-radius: 12px;
+  padding: 16px;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+  text-decoration: none;
+  color: inherit;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  border-color: var(--color-accent);
+}
+
+.card h3 { 
+  margin: 0 0 8px; 
+  font-size: 14px; 
+  color: var(--color-accent); 
+}
+
+.card p { 
+  margin: 0; 
+  color: var(--color-muted); 
+  font-size: 14px; 
+}
+
+/* Services, Trust, Location Sections */
+.services, .trust, .location {
+  padding: 40px 0;
+}
+
+.services {
+  border-bottom: 2px solid rgba(31,111,235,0.35);
+}
+
+.trust {
+  border-bottom: 2px solid rgba(31,111,235,0.35);
+}
+
+.trust-badges {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.badge {
+  text-align: center;
+  padding: 20px 12px;
+  background: #0f131b;
+  border: 2px dashed rgba(255,217,26,0.45);
+  border-radius: 12px;
+}
+
+.location {
+  background: #0f131b;
+}
+
+.location-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 24px;
+  margin-top: 16px;
+}
+
+.location-grid ul {
+  list-style: none;
+  padding: 0;
+  margin: 8px 0;
+}
+
+.location-grid li {
+  padding: 4px 0;
+  color: var(--color-muted);
+}
+
+.location-grid li:before {
+  content: "✓ ";
+  color: var(--color-accent);
+  font-weight: bold;
+}
+
+/* Testimonials */
+.testimonials {
+  text-align: center;
+  margin-top: 24px;
+}
+
+.testimonial {
+  background: #0f131b;
+  border: 2px solid rgba(31,111,235,0.45);
+  border-radius: 12px;
+  padding: 16px;
+  margin-top: 12px;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Footer */
+footer {
+  border-top: 2px solid rgba(31,111,235,0.35);
+  padding: 22px 0 40px;
+}
+
+.footer-grid { 
+  display: grid; 
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+  gap: 18px; 
+}
+
+.muted { 
+  color: var(--color-muted); 
+}
+
+.muted a {
+  color: var(--color-muted);
+  transition: color 0.2s ease;
+}
+
+.muted a:hover {
+  color: var(--color-accent);
+}
+
+/* Responsive Design */
+@media (max-width: 920px) {
+  .hero-grid { 
+    grid-template-columns: 1fr; 
+    gap: 20px;
+  }
+  
+  .card-grid { 
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); 
+  }
+  
+  .location-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .nav-links { 
+    display: none; 
+  }
+  
+  .card-grid { 
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); 
+  }
+  
+  .trust-badges { 
+    grid-template-columns: 1fr; 
+  }
+  
+  .hero {
+    padding: 32px 0 16px;
+  }
+  
+  .services, .trust, .location {
+    padding: 24px 0;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  
+  .btn, .card {
+    transition: none;
+  }
+}
+
+/* Print Styles */
+@media print {
+  header, footer, .game-container {
+    display: none;
+  }
+  
+  body {
+    background: white;
+    color: black;
+  }
+  
+  .card, .badge, .testimonial {
+    border: 1px solid #000;
+    background: white;
+  }
+}

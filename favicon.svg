@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <rect width="32" height="32" fill="#ffd91a"/>
+  <rect x="6" y="6" width="20" height="20" fill="#0b0e14" stroke="#000" stroke-width="2"/>
+  <rect x="10" y="10" width="12" height="12" fill="#1f6feb"/>
+  <text x="16" y="20" text-anchor="middle" fill="#ffd91a" font-family="monospace" font-size="8" font-weight="bold">PQ</text>
+</svg>

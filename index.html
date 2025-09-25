@@ -38,6 +38,7 @@
     <link rel="manifest" href="manifest.json" />
     <meta name="theme-color" content="#1f6feb" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="default" />
     <meta name="apple-mobile-web-app-title" content="PackQuest Wien" />
     <link rel="apple-touch-icon" href="favicon.svg" />
@@ -48,22 +49,25 @@
     <link rel="stylesheet" href="game.css" />
   </head>
   <body>
-    <header>
-      <div class="container nav">
-        <a class="logo" href="index.html" aria-label="PackQuest Startseite">
-          <span class="logo-mark" aria-hidden="true"></span>
-          <span class="logo-text pixel">PACKQUEST</span>
+    <header class="header">
+      <div class="container nav-premium">
+        <a href="index.html" class="brand" aria-label="PackQuest Startseite">
+          <span class="brand-icon" aria-hidden="true"></span>
+          <span class="brand-name">PACKQUEST</span>
         </a>
-        <nav class="nav-links pixel-nav" aria-label="Hauptnavigation">
-          <a href="#leistungen" class="nav-item pixel">🎯 Leistungen</a>
-          <a href="umzuege.html" class="nav-item pixel">📦 Umzüge</a>
-          <a href="entruempelung.html" class="nav-item pixel">🗑️ Entrümpelung</a>
-          <a href="montage.html" class="nav-item pixel">🔧 Montage</a>
-          <a href="wohnungsuebergabe.html" class="nav-item pixel">🏠 Übergabe</a>
-          <a href="projekte.html" class="nav-item pixel">📸 Projekte</a>
-          <a href="kontakt.html" class="nav-item pixel">📞 Kontakt</a>
+        <nav class="menu" id="mainMenu" aria-label="Hauptnavigation">
+          <a href="#leistungen" class="pixel">🎯 Leistungen</a>
+          <a href="umzuege.html" class="pixel">📦 Umzüge</a>
+          <a href="entruempelung.html" class="pixel">🗑️ Entrümpelung</a>
+          <a href="montage.html" class="pixel">🔧 Montage</a>
+          <a href="wohnungsuebergabe.html" class="pixel">🏠 Übergabe</a>
+          <a href="projekte.html" class="pixel">📸 Projekte</a>
+          <a href="kontakt.html" class="pixel">📞 Kontakt</a>
         </nav>
-        <a class="btn" href="kontakt.html#anfrage">Jetzt Angebot anfordern</a>
+        <a class="btn header-cta" href="kontakt.html#anfrage">Jetzt Angebot anfordern</a>
+        <div class="hamburger">
+          <button type="button" aria-label="Menü öffnen" onclick="document.getElementById('mainMenu').classList.toggle('open')">☰</button>
+        </div>
       </div>
     </header>
 
@@ -78,26 +82,11 @@
             <br><strong style="color: var(--color-primary);">📋 2 Mann + LKW: 60€/h | 3 Mann + LKW: 90€/h | 4 Mann + LKW: 120€/h</strong></p>
             <div class="cta-row">
               <a class="btn" href="kontakt.html#anfrage">Jetzt Angebot anfordern</a>
-              <a class="btn" style="background:transparent;color:var(--color-accent);box-shadow:0 0 0 3px var(--color-accent), 0 6px 0 0 #000;" href="#leistungen">Leistungen ansehen</a>
+            <a class="btn" style="background:transparent;color:#111;box-shadow:0 0 0 3px var(--color-accent), 0 6px 0 0 #000;background:#ffd91a;border-color:#ffd91a;" href="#leistungen">Leistungen ansehen</a>
             </div>
           </div>
-          <div style="position: relative;">
-            <!-- Hero Image Grid -->
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px;">
-              <img src="https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=400&h=250&q=80&fm=webp" 
-                   alt="Umzug Wien LKW - PackQuest Umzugswagen professioneller Umzugsdienst" 
-                   width="200" height="125" loading="lazy" 
-                   style="border-radius: 8px; object-fit: cover; border: 2px solid var(--color-accent);" />
-              <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=400&h=250&q=80&fm=webp" 
-                   alt="Umzugsteam Wien - Professionelle Umzugshelfer beim Möbeltransport PackQuest" 
-                   width="200" height="125" loading="lazy" 
-                   style="border-radius: 8px; object-fit: cover; border: 2px solid var(--color-accent);" />
-            </div>
-            <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=500&h=200&q=80&fm=webp" 
-                 alt="Umzug Wien Kartons - Professioneller Umzugsdienst mit Umzugsmaterial PackQuest" 
-                 width="400" height="160" loading="lazy" 
-                 style="border-radius: 12px; object-fit: cover; border: 3px solid var(--color-primary); width: 100%;" />
-          </div>
+          <!-- Hero Visual bewusst reduziert (keine Bilder) -->
+          <div></div>
         </div>
       </section>
 
@@ -253,9 +242,9 @@
         </div>
         <div>
           <div class="pixel" style="margin-bottom:8px;">Kontakt Wien</div>
-          <div class="muted">Tel.: <a href="tel:+431000000">+43 1 000 000</a></div>
-          <div class="muted">E-Mail: <a href="mailto:hallo@packquest.at">hallo@packquest.at</a></div>
-          <div class="muted">Standort: Wien, Österreich</div>
+          <div class="muted">Tel.: <a href="tel:+436641101057">0664 1101057</a></div>
+          <div class="muted">E-Mail: <a href="mailto:packquest1@gmail.com">packquest1@gmail.com</a></div>
+          <div class="muted">Anschrift: Laxenburgerstrasse 49-57, 1100 Wien</div>
         </div>
         <div>
           <div class="pixel" style="margin-bottom:8px;">Rechtliches</div>
@@ -277,14 +266,15 @@
       "url": "https://packquest.at",
       "logo": "https://packquest.at/favicon.svg",
       "image": "https://packquest.at/so_soll_die_seite_aussehen.jpg",
-      "telephone": "+43 1 000 000",
-      "email": "hallo@packquest.at",
+      "telephone": "+43 664 1101057",
+      "email": "packquest1@gmail.com",
       "address": {
         "@type": "PostalAddress",
+        "streetAddress": "Laxenburgerstrasse 49-57",
+        "postalCode": "1100",
         "addressLocality": "Wien",
         "addressRegion": "Wien",
-        "addressCountry": "AT",
-        "postalCode": "1010"
+        "addressCountry": "AT"
       },
       "geo": {
         "@type": "GeoCoordinates",

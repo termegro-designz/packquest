@@ -16,18 +16,25 @@
     <link rel="stylesheet" href="game.css" />
   </head>
   <body>
-    <header>
-      <div class="container nav">
-        <a class="logo" href="index.html"><span class="logo-mark"></span><span class="logo-text pixel">PACKQUEST</span></a>
-        <nav class="nav-links pixel-nav" aria-label="Hauptnavigation">
-          <a href="index.html#leistungen" class="nav-item pixel">🎯 Leistungen</a>
-          <a href="umzuege.html" class="nav-item pixel">📦 Umzüge</a>
-          <a href="entruempelung.html" class="nav-item pixel">🗑️ Entrümpelung</a>
-          <a href="montage.html" class="nav-item pixel">🔧 Montage</a>
-          <a href="wohnungsuebergabe.html" class="nav-item pixel active">🏠 Übergabe</a>
-          <a href="kontakt.html" class="nav-item pixel">📞 Kontakt</a>
+    <header class="header">
+      <div class="container nav-premium">
+        <a href="index.html" class="brand" aria-label="PackQuest Startseite">
+          <span class="brand-icon" aria-hidden="true"></span>
+          <span class="brand-name">PACKQUEST</span>
+        </a>
+        <nav class="menu" id="mainMenuWue" aria-label="Hauptnavigation">
+          <a href="index.html" class="pixel">🏠 Start</a>
+          <a href="umzuege.html" class="pixel">🚚 Umzüge</a>
+          <a href="entruempelung.html" class="pixel">🧹 Entrümpelung</a>
+          <a href="montage.html" class="pixel">🔧 Montage</a>
+          <a href="wohnungsuebergabe.html" class="pixel active">🏢 Übergabe</a>
+          <a href="projekte.html" class="pixel">📸 Projekte</a>
+          <a href="kontakt.html" class="pixel">📞 Kontakt</a>
         </nav>
-        <a class="btn" href="kontakt.html#anfrage">🚀 B2B-Anfrage Wien</a>
+        <a class="btn header-cta" href="kontakt.html#anfrage">B2B-Anfrage</a>
+        <div class="hamburger">
+          <button type="button" aria-label="Menü öffnen" onclick="document.getElementById('mainMenuWue').classList.toggle('open')">☰</button>
+        </div>
       </div>
     </header>
     <main class="container" style="padding:32px 0 40px;">
@@ -40,7 +47,7 @@
         </p>
         <div class="cta-row" style="gap: 16px;">
           <a class="btn" href="kontakt.html#anfrage" style="font-size: 16px;">💬 B2B-Partnerschaft</a>
-          <a class="btn" href="tel:+431000000" style="background: transparent; border: 2px solid #ffd91a; color: #ffd91a;">📞 Hausverwaltung-Hotline</a>
+          <a class="btn" href="tel:+436641101057" style="background: transparent; border: 2px solid #ffd91a; color: #ffd91a;">📞 Hausverwaltung-Hotline</a>
         </div>
       </div>
 
@@ -69,23 +76,33 @@
         </div>
       </section>
 
-      <!-- B2B Service Galerie -->
-      <section style="margin-bottom: 40px;">
-        <h2 class="pixel" style="text-align: center; margin: 0 0 24px; font-size: 20px;">📸 Wohnungsübergabe Wien - B2B Service</h2>
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-          <div style="text-align: center;">
-            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=250&q=80&fm=webp" 
-                 alt="Wohnungsübergabe Wien B2B - Besenreine Reinigung Hausverwaltung PackQuest" 
-                 width="400" height="250" loading="lazy" 
-                 style="border-radius: 8px; object-fit: cover; border: 2px solid rgba(31,111,235,0.3);" />
-            <h4 class="pixel" style="margin: 8px 0; font-size: 12px;">🧹 Besenreine Reinigung</h4>
+      <!-- Vertrauen & Ablauf / SEO-Erweiterung -->
+      <section style="margin-bottom: 40px; padding: 30px; background: linear-gradient(135deg, rgba(31,111,235,0.1), rgba(255,217,26,0.05)); border-radius: 15px;">
+        <h2 class="pixel" style="text-align: center; margin: 0 0 24px; font-size: 20px;">🔒 Sicherheit & Transparenz für Hausverwaltungen</h2>
+        <div class="card-grid" style="margin-top: 18px;">
+          <div class="card">
+            <h3 class="pixel">📋 Dokumentation</h3>
+            <ul style="margin: 12px 0; padding-left: 20px;">
+              <li>Übergabeprotokoll mit Fotodokumentation</li>
+              <li>Schlüsseljournal & Zählerstände</li>
+              <li>Mangel-Liste mit Handlungsempfehlung</li>
+            </ul>
           </div>
-          <div style="text-align: center;">
-            <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=250&q=80&fm=webp" 
-                 alt="Kleinreparaturen Wien - Dübellöcher spachteln Wohnungsübergabe PackQuest" 
-                 width="400" height="250" loading="lazy" 
-                 style="border-radius: 8px; object-fit: cover; border: 2px solid rgba(31,111,235,0.3);" />
-            <h4 class="pixel" style="margin: 8px 0; font-size: 12px;">🔧 Kleinreparaturen</h4>
+          <div class="card">
+            <h3 class="pixel">🧰 Kleinreparaturen</h3>
+            <ul style="margin: 12px 0; padding-left: 20px;">
+              <li>Dübellöcher verschließen, Silikon erneuern</li>
+              <li>Kleinteile tauschen (z. B. Abdeckkappen)</li>
+              <li>Auf Wunsch Maler-Ausbesserungen</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3 class="pixel">⏱️ Fristen & Verlässlichkeit</h3>
+            <ul style="margin: 12px 0; padding-left: 20px;">
+              <li>Express-Termine binnen 24–48 Stunden</li>
+              <li>Wochenend- und Feiertagsservice</li>
+              <li>Fixe Kontaktperson für B2B-Partner</li>
+            </ul>
           </div>
         </div>
       </section>

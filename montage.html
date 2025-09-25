@@ -23,21 +23,25 @@
     <link rel="stylesheet" href="game.css" />
   </head>
   <body>
-    <header>
-      <div class="container nav">
-        <a class="logo" href="index.html" aria-label="PackQuest Startseite">
-          <span class="logo-mark" aria-hidden="true"></span>
-          <span class="logo-text pixel">PACKQUEST</span>
+    <header class="header">
+      <div class="container nav-premium">
+        <a href="index.html" class="brand" aria-label="PackQuest Startseite">
+          <span class="brand-icon" aria-hidden="true"></span>
+          <span class="brand-name">PACKQUEST</span>
         </a>
-        <nav class="nav-links pixel-nav" aria-label="Hauptnavigation">
-          <a href="index.html#leistungen" class="nav-item pixel">🎯 Leistungen</a>
-          <a href="umzuege.html" class="nav-item pixel">📦 Umzüge</a>
-          <a href="entruempelung.html" class="nav-item pixel">🗑️ Entrümpelung</a>
-          <a href="montage.html" class="nav-item pixel active">🔧 Montage</a>
-          <a href="wohnungsuebergabe.html" class="nav-item pixel">🏠 Übergabe</a>
-          <a href="kontakt.html" class="nav-item pixel">📞 Kontakt</a>
+        <nav class="menu" id="mainMenuMont" aria-label="Hauptnavigation">
+          <a href="index.html" class="pixel">🏠 Start</a>
+          <a href="umzuege.html" class="pixel">🚚 Umzüge</a>
+          <a href="entruempelung.html" class="pixel">🧹 Entrümpelung</a>
+          <a href="montage.html" class="pixel active">🔧 Montage</a>
+          <a href="wohnungsuebergabe.html" class="pixel">🏢 Übergabe</a>
+          <a href="projekte.html" class="pixel">📸 Projekte</a>
+          <a href="kontakt.html" class="pixel">📞 Kontakt</a>
         </nav>
-        <a class="btn" href="kontakt.html#anfrage">🚀 Montage Wien</a>
+        <a class="btn header-cta" href="kontakt.html#anfrage">Montage Wien</a>
+        <div class="hamburger">
+          <button type="button" aria-label="Menü öffnen" onclick="document.getElementById('mainMenuMont').classList.toggle('open')">☰</button>
+        </div>
       </div>
     </header>
 
@@ -51,7 +55,7 @@
         </p>
         <div class="cta-row" style="gap: 16px;">
           <a class="btn" href="kontakt.html#anfrage" style="font-size: 16px;">💬 Kostenloses Angebot</a>
-          <a class="btn" href="tel:+431000000" style="background: transparent; border: 2px solid #ffd91a; color: #ffd91a;">📞 Sofort anrufen</a>
+          <a class="btn" href="tel:+436641101057" style="background: transparent; border: 2px solid #ffd91a; color: #ffd91a;">📞 Sofort anrufen</a>
         </div>
       </div>
 
@@ -83,36 +87,7 @@
       <!-- IKEA Montage Galerie -->
       <section style="margin-bottom: 40px;">
         <h2 class="pixel" style="text-align: center; margin: 0 0 24px; font-size: 20px;">📸 Möbelmontage Wien - Unsere Arbeiten</h2>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px;">
-          <div style="text-align: center;">
-            <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=250&h=200&q=80&fm=webp" 
-                 alt="IKEA Montage Wien - Schrankmontage PAX Kleiderschrank PackQuest" 
-                 width="250" height="200" loading="lazy" 
-                 style="border-radius: 8px; object-fit: cover; border: 2px solid rgba(31,111,235,0.3);" />
-            <p style="font-size: 12px; margin-top: 8px; font-family: 'Press Start 2P', monospace;">IKEA PAX Montage</p>
-          </div>
-          <div style="text-align: center;">
-            <img src="https://images.unsplash.com/photo-1556020685-ae41abfc9365?w=250&h=200&q=80&fm=webp" 
-                 alt="Küchenmontage Wien - Küchenaufbau Arbeitsplatte IKEA PackQuest" 
-                 width="250" height="200" loading="lazy" 
-                 style="border-radius: 8px; object-fit: cover; border: 2px solid rgba(31,111,235,0.3);" />
-            <p style="font-size: 12px; margin-top: 8px; font-family: 'Press Start 2P', monospace;">Küchenmontage</p>
-          </div>
-          <div style="text-align: center;">
-            <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=250&h=200&q=80&fm=webp" 
-                 alt="Möbelaufbau Wien - Regalmontage BILLY IKEA PackQuest Monteur" 
-                 width="250" height="200" loading="lazy" 
-                 style="border-radius: 8px; object-fit: cover; border: 2px solid rgba(31,111,235,0.3);" />
-            <p style="font-size: 12px; margin-top: 8px; font-family: 'Press Start 2P', monospace;">Regalmontage</p>
-          </div>
-          <div style="text-align: center;">
-            <img src="https://images.unsplash.com/photo-1504148455328-c376907d081c?w=250&h=200&q=80&fm=webp" 
-                 alt="Werkzeug Montage Wien - professionelle Ausrüstung Monteur PackQuest" 
-                 width="250" height="200" loading="lazy" 
-                 style="border-radius: 8px; object-fit: cover; border: 2px solid rgba(31,111,235,0.3);" />
-            <p style="font-size: 12px; margin-top: 8px; font-family: 'Press Start 2P', monospace;">Profi-Werkzeug</p>
-          </div>
-        </div>
+          <!-- Bilder entfernt. Fotos sind exklusiv auf Projekte-Seite. -->
       </section>
 
       <!-- Service-Ablauf -->
@@ -295,7 +270,7 @@
         <p style="color: #fff; margin: 0 0 20px; font-size: 16px;">Kostenloses Angebot & flexible Terminvereinbarung</p>
         <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
           <a class="btn" href="kontakt.html#anfrage" style="background: #ffd91a; color: #000; font-weight: bold;">📝 Online-Anfrage</a>
-          <a class="btn" href="tel:+431000000" style="background: transparent; border: 2px solid #ffd91a; color: #ffd91a;">📞 +43 1 000 000</a>
+          <a class="btn" href="tel:+436641101057" style="background: transparent; border: 2px solid #ffd91a; color: #ffd91a;">📞 0664 1101057</a>
         </div>
       </div>
     </main>
@@ -311,8 +286,9 @@
         </div>
         <div>
           <div class="pixel" style="margin-bottom:8px;">Montage Wien</div>
-          <div class="muted">Tel.: <a href="tel:+431000000">+43 1 000 000</a></div>
-          <div class="muted">E-Mail: <a href="mailto:montage@packquest.at">montage@packquest.at</a></div>
+          <div class="muted">Tel.: <a href="tel:+436641101057">0664 1101057</a></div>
+          <div class="muted">E-Mail: <a href="mailto:packquest1@gmail.com">packquest1@gmail.com</a></div>
+          <div class="muted">Anschrift: Laxenburgerstrasse 49-57, 1100 Wien</div>
           <div class="muted">Service: Wien & Niederösterreich</div>
         </div>
         <div>

@@ -349,6 +349,7 @@ document.addEventListener('DOMContentLoaded', function() {
   
   // Preload game resources
   preloadResources();
+  setupContactSubmission();
 });
 
 // Preload kritische Ressourcen
@@ -366,6 +367,68 @@ function preloadResources() {
     link.href = src;
     link.as = 'image';
     document.head.appendChild(link);
+  });
+}
+
+// Kontaktformular: AJAX Submit an Serverless API
+function setupContactSubmission() {
+  const form = document.getElementById('contactForm');
+  if (!form) return;
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const status = document.getElementById('contactStatus');
+    const submitBtn = form.querySelector('button[type="submit"]');
+    if (status) status.textContent = '';
+
+    // Mindestens E-Mail ODER Telefon erforderlich
+    const formData = new FormData(form);
+    const email = (formData.get('email') || '').toString().trim();
+    const telefon = (formData.get('telefon') || '').toString().trim();
+    const name = (formData.get('name') || '').toString().trim();
+    const websiteHoneypot = (formData.get('website') || '').toString().trim();
+
+    if (websiteHoneypot) {
+      if (status) status.textContent = 'Anfrage blockiert.';
+      return;
+    }
+    if (!email && !telefon) {
+      if (status) status.textContent = 'Bitte E-Mail oder Telefon angeben.';
+      return;
+    }
+    if (!name) {
+      if (status) status.textContent = 'Bitte Name angeben.';
+      return;
+    }
+
+    submitBtn && (submitBtn.disabled = true);
+    submitBtn && (submitBtn.textContent = 'Wird gesendet...');
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name,
+          email,
+          telefon,
+          leistung: (formData.get('leistung') || '').toString(),
+          nachricht: (formData.get('nachricht') || '').toString(),
+          origin: window.location.href
+        })
+      });
+      const data = await res.json().catch(() => ({}));
+      if (res.ok) {
+        if (status) status.textContent = 'Danke! Ihre Anfrage wurde gesendet.';
+        form.reset();
+      } else {
+        if (status) status.textContent = data.error || 'Senden fehlgeschlagen. Bitte später erneut versuchen.';
+      }
+    } catch (err) {
+      if (status) status.textContent = 'Netzwerkfehler. Bitte später erneut versuchen.';
+    } finally {
+      submitBtn && (submitBtn.disabled = false);
+      submitBtn && (submitBtn.textContent = 'Anfrage senden');
+    }
   });
 }
 

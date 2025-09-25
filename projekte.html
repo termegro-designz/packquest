@@ -53,23 +53,24 @@
   </head>
   <body>
     <header class="header">
-      <div class="container">
-        <div class="nav-brand">
-          <img src="charakter_pq-01.svg" alt="PackQuest Logo" width="40" height="40">
-          <span class="pixel">PACKQUEST</span>
-        </div>
-        <nav class="pixel-nav">
-          <div class="nav-links">
-            <a href="index.html" class="nav-item pixel">🏠 Start</a>
-            <a href="umzuege.html" class="nav-item pixel">🚚 Umzüge</a>
-            <a href="entruempelung.html" class="nav-item pixel">🧹 Entrümpelung</a>
-            <a href="montage.html" class="nav-item pixel">🔧 Montage</a>
-            <a href="wohnungsuebergabe.html" class="nav-item pixel">🏢 Übergabe</a>
-            <a href="projekte.html" class="nav-item pixel active">📸 Projekte</a>
-            <a href="kontakt.html" class="nav-item pixel">📞 Kontakt</a>
-          </div>
-          <a class="btn" href="kontakt.html#anfrage">Angebot anfordern</a>
+      <div class="container nav-premium">
+        <a href="index.html" class="brand" aria-label="PackQuest Startseite">
+          <span class="brand-icon" aria-hidden="true"></span>
+          <span class="brand-name">PACKQUEST</span>
+        </a>
+        <nav class="menu" id="mainMenuProj" aria-label="Hauptnavigation">
+          <a href="index.html" class="pixel">🏠 Start</a>
+          <a href="umzuege.html" class="pixel">🚚 Umzüge</a>
+          <a href="entruempelung.html" class="pixel">🧹 Entrümpelung</a>
+          <a href="montage.html" class="pixel">🔧 Montage</a>
+          <a href="wohnungsuebergabe.html" class="pixel">🏢 Übergabe</a>
+          <a href="projekte.html" class="pixel active">📸 Projekte</a>
+          <a href="kontakt.html" class="pixel">📞 Kontakt</a>
         </nav>
+        <a class="btn header-cta" href="kontakt.html#anfrage">Angebot anfordern</a>
+        <div class="hamburger">
+          <button type="button" aria-label="Menü öffnen" onclick="document.getElementById('mainMenuProj').classList.toggle('open')">☰</button>
+        </div>
       </div>
     </header>
 
@@ -91,6 +92,43 @@
       <!-- Projekt-Galerie -->
       <section style="margin-bottom: 40px;">
         <h2 class="pixel" style="text-align: center; margin: 0 0 32px; font-size: 24px;">🏆 Unsere Erfolgsprojekte in Wien</h2>
+
+        <!-- Premium Diashow: Neue Fotos (Überzeugungspsychologie) -->
+        <div id="projectSlider" class="project-slider" aria-label="Projekt Diashow">
+          <button class="slider-btn prev" aria-label="Vorheriges Bild">‹</button>
+          <div class="slides">
+            <figure class="slide active">
+              <img src="img/IMG-20250925-WA0022.jpg" alt="Umzug Wien – Sorgfältig verpackte Möbel" width="1200" height="700" loading="lazy" />
+              <figcaption class="caption">
+                <strong>Wie behandeln Ihr Zuhause wie unseres.</strong>
+                Sorgfältig geschützt, präzise getragen – für ein sicheres Gefühl.
+              </figcaption>
+            </figure>
+            <figure class="slide">
+              <img src="img/IMG-20250925-WA0027.jpg" alt="Professionelle LKW-Beladung Wien – Platzoptimiert" width="1200" height="700" loading="lazy" />
+              <figcaption class="caption">
+                <strong>Perfekt organisiert, perfekt gesichert.</strong>
+                Platzsparend beladen – spart Zeit, Nerven und Geld.
+              </figcaption>
+            </figure>
+            <figure class="slide">
+              <img src="img/IMG-20250925-WA0023.jpg" alt="Entrümpelung Wien – Vor Ort sauber übergeben" width="1200" height="700" loading="lazy" />
+              <figcaption class="caption">
+                <strong>Sauber übergeben, ohne Stress.</strong>
+                Besenrein und termingerecht – Hausverwaltungen lieben uns.
+              </figcaption>
+            </figure>
+            <figure class="slide">
+              <img src="img/IMG-20250925-WA0028.jpg" alt="Montage Wien – Fachgerechte Demontage & Aufbau" width="1200" height="700" loading="lazy" />
+              <figcaption class="caption">
+                <strong>Alles aus einer Hand.</strong>
+                Demontage, Montage, Transport – ein Team, ein Ansprechpartner.
+              </figcaption>
+            </figure>
+          </div>
+          <button class="slider-btn next" aria-label="Nächstes Bild">›</button>
+          <div class="dots" role="tablist" aria-label="Diashow Navigation"></div>
+        </div>
         
         <!-- LKW Vorher/Nachher -->
         <div style="margin-bottom: 50px; padding: 30px; background: linear-gradient(135deg, rgba(31,111,235,0.1), rgba(255,217,26,0.05)); border-radius: 15px;">
@@ -122,18 +160,13 @@
           </div>
         </div>
 
-        <!-- Umzug Wien Galerie -->
+        <!-- Umzug Wien Galerie (Ready Bilder) -->
         <div style="margin-bottom: 50px;">
-          <h3 class="pixel" style="text-align: center; margin: 0 0 24px; font-size: 20px; color: #ffd91a;">🏠 Umzüge in Wien - Unsere Arbeiten</h3>
-          <div style="text-align: center; margin-bottom: 20px;">
-            <img src="img/readybilder/umzug_wien.png" 
-                 alt="PackQuest Umzug Wien - Professioneller Umzugsdienst Team in Aktion" 
-                 width="100%" height="auto" loading="lazy" 
-                 style="max-width: 800px; border-radius: 15px; border: 4px solid #ffd91a; box-shadow: 0 12px 30px rgba(0,0,0,0.4);" />
-            <h4 class="pixel" style="margin: 16px 0 8px; font-size: 16px; color: #ffd91a;">📦 Umzug Wien in Aktion</h4>
-            <p style="margin: 0; font-size: 16px; max-width: 600px; margin: 0 auto;">
-              Unser erfahrenes Team beim professionellen Umzug in Wien. Sorgfältige Behandlung Ihrer Möbel und Gegenstände.
-            </p>
+          <h3 class="pixel" style="text-align: center; margin: 0 0 24px; font-size: 20px; color: #ffd91a;">🏠 Umzüge in Wien – Unsere Arbeiten</h3>
+          <div class="ready-grid">
+            <img src="img/readybilder/umzug_wien.png" alt="Umzug Wien – Team in Aktion" loading="lazy" />
+            <img src="img/readybilder/klavier_umzug_wien.png" alt="Klaviertransport Wien – Sicher & professionell" loading="lazy" />
+            <img src="img/readybilder/räumung_wien.png" alt="Räumung Wien – Besenrein übergeben" loading="lazy" />
           </div>
         </div>
 
@@ -194,8 +227,8 @@
         <div>
           <div class="pixel" style="margin:0 0 8px;">Kontakt</div>
           <div class="muted">
-            <a href="tel:+431000000">📞 +43 1 000 000</a><br>
-            <a href="mailto:info@packquest.at">📧 info@packquest.at</a>
+            <a href="tel:+436641101057">📞 0664 1101057</a><br>
+            <a href="mailto:packquest1@gmail.com">📧 packquest1@gmail.com</a>
           </div>
         </div>
         <div>
@@ -225,13 +258,13 @@
       "name": "PackQuest Wien - Projekte",
       "description": "PackQuest Projekte Wien - Referenzen unserer professionellen Umzüge, Entrümpelungen und Montagen",
       "url": "https://packquest.at/projekte",
-      "telephone": "+43-1-000-000",
-      "email": "info@packquest.at",
+      "telephone": "+43 664 1101057",
+      "email": "packquest1@gmail.com",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "Beispielstraße 123",
+        "streetAddress": "Laxenburgerstrasse 49-57",
         "addressLocality": "Wien",
-        "postalCode": "1010",
+        "postalCode": "1100",
         "addressCountry": "AT"
       },
       "geo": {
@@ -245,6 +278,51 @@
     </script>
 
     <!-- Scripts -->
+    <script>
+      (function() {
+        const slider = document.getElementById('projectSlider');
+        if (!slider) return;
+        const slides = Array.from(slider.querySelectorAll('.slide'));
+        const dotsWrap = slider.querySelector('.dots');
+        let index = 0;
+        
+        // Dots erstellen
+        slides.forEach((_, i) => {
+          const b = document.createElement('button');
+          b.setAttribute('aria-label', 'Bild ' + (i+1));
+          b.addEventListener('click', () => go(i));
+          dotsWrap.appendChild(b);
+        });
+        const dots = Array.from(dotsWrap.querySelectorAll('button'));
+        
+        function render() {
+          slides.forEach((s, i) => s.classList.toggle('active', i === index));
+          dots.forEach((d, i) => d.classList.toggle('active', i === index));
+        }
+        function go(n) {
+          index = (n + slides.length) % slides.length;
+          render();
+        }
+        slider.querySelector('.prev').addEventListener('click', () => go(index - 1));
+        slider.querySelector('.next').addEventListener('click', () => go(index + 1));
+        
+        // Auto-Play mit sanftem Delay
+        let autoplay = setInterval(() => go(index + 1), 5000);
+        slider.addEventListener('mouseenter', () => clearInterval(autoplay));
+        slider.addEventListener('mouseleave', () => autoplay = setInterval(() => go(index + 1), 5000));
+        
+        // Swipe auf Mobile
+        let startX = 0; let endX = 0;
+        slider.addEventListener('touchstart', (e) => { startX = e.changedTouches[0].clientX; });
+        slider.addEventListener('touchend', (e) => {
+          endX = e.changedTouches[0].clientX;
+          if (endX - startX > 50) go(index - 1);
+          if (startX - endX > 50) go(index + 1);
+        });
+        
+        render();
+      })();
+    </script>
     <script src="scripts.js"></script>
   </body>
 </html>

@@ -134,7 +134,7 @@ class PackQuestGame {
   loadAssets() {
     const imageUrls = {
       player: 'charakter_pq-01.svg',
-      coin: 'coin_pq.svg',
+      coin: 'coin_pq.svg', 
       truck: 'lkw_pq-01.svg',
       chair: 'sessel_pq.svg'
     };
@@ -464,6 +464,24 @@ class PackQuestGame {
     
     this.draw();
     this.gameLoop = requestAnimationFrame((timestamp) => this.update(timestamp));
+  }
+
+  // Handle mobile D-Pad buttons (no-op on Desktop)
+  processMobileInput() {
+    if (!this.mobileButtons || !this.gameRunning) return;
+    const currentSpeed = this.player.turboActive ? this.player.speed * 2 : this.player.speed;
+    if (this.mobileButtons.left) {
+      this.player.x = Math.max(0, this.player.x - currentSpeed);
+    }
+    if (this.mobileButtons.right) {
+      this.player.x = Math.min(this.canvas.width - this.player.width, this.player.x + currentSpeed);
+    }
+    if (this.mobileButtons.up) {
+      this.player.y = Math.max(0, this.player.y - currentSpeed);
+    }
+    if (this.mobileButtons.down) {
+      this.player.y = Math.min(this.canvas.height - this.player.height, this.player.y + currentSpeed);
+    }
   }
   
   updatePlayer(deltaTime) {
@@ -1026,11 +1044,11 @@ class PackQuestGame {
     }
     
     this.ctx.fillStyle = box.type === 'special' ? '#ff6b6b' : '#8B4513';
-    this.ctx.fillRect(box.x, box.y, box.width, box.height);
+        this.ctx.fillRect(box.x, box.y, box.width, box.height);
     
-    this.ctx.strokeStyle = '#000';
+        this.ctx.strokeStyle = '#000';
     this.ctx.lineWidth = 2;
-    this.ctx.strokeRect(box.x, box.y, box.width, box.height);
+        this.ctx.strokeRect(box.x, box.y, box.width, box.height);
     
     // Special box indicator
     if (box.type === 'special') {
@@ -1055,15 +1073,15 @@ class PackQuestGame {
     
     if (this.imagesLoaded && this.images.coin && this.images.coin.complete) {
       this.ctx.drawImage(this.images.coin, coin.x, y, coin.width, coin.height);
-    } else {
+        } else {
       this.ctx.fillStyle = coin.type === 'golden' ? '#ffd700' : '#ffd91a';
-      this.ctx.beginPath();
+          this.ctx.beginPath();
       this.ctx.arc(coin.x + coin.width/2, y + coin.height/2, coin.width/2, 0, Math.PI * 2);
-      this.ctx.fill();
-      this.ctx.strokeStyle = '#000';
+          this.ctx.fill();
+          this.ctx.strokeStyle = '#000';
       this.ctx.lineWidth = 1;
-      this.ctx.stroke();
-    }
+          this.ctx.stroke();
+        }
     
     this.ctx.shadowBlur = 0;
   }
@@ -1192,70 +1210,75 @@ class PackQuestGame {
     this.ctx.globalAlpha = text.alpha;
     this.ctx.fillStyle = text.color;
     this.ctx.font = 'bold 14px Arial';
-    this.ctx.textAlign = 'center';
+      this.ctx.textAlign = 'center';
     this.ctx.fillText(text.text, text.x, text.y);
-    this.ctx.textAlign = 'left';
+      this.ctx.textAlign = 'left';
     this.ctx.globalAlpha = 1;
   }
   
   drawUI() {
-    // UI Background
-    this.ctx.fillStyle = 'rgba(0, 0, 0, 0.8)';
-    this.ctx.fillRect(0, this.canvas.height - 60, this.canvas.width, 60);
+    // HUD nach oben verlegt, Spielfeld unten komplett sichtbar
+    const hudHeight = 40;
     
-    // Lives
+    // Hintergrundleiste oben
+    this.ctx.fillStyle = 'rgba(0, 0, 0, 0.85)';
+    this.ctx.fillRect(0, 0, this.canvas.width, hudHeight);
+    
+    // Leben links
     this.ctx.fillStyle = '#ff6b6b';
     this.ctx.font = 'bold 12px Arial';
     for (let i = 0; i < this.lives; i++) {
-      this.ctx.fillText('❤️', 10 + i * 25, this.canvas.height - 35);
+      this.ctx.fillText('❤️', 10 + i * 18, 16);
     }
     
-    // Energy bar
-    const energyWidth = 100;
-    const energyHeight = 8;
+    // Energiebalken links unter Herzen
+    const energyWidth = 110;
+    const energyHeight = 7;
     const energyX = 10;
-    const energyY = this.canvas.height - 20;
-    
+    const energyY = 26;
     this.ctx.fillStyle = '#333';
     this.ctx.fillRect(energyX, energyY, energyWidth, energyHeight);
     this.ctx.fillStyle = this.energy > 30 ? '#00ff00' : '#ff6b6b';
     this.ctx.fillRect(energyX, energyY, (this.energy / 100) * energyWidth, energyHeight);
     
-    // Power-up indicators
-    let powerUpX = 120;
+    // Power-up Indikatoren links daneben
+    let powerUpX = energyX + energyWidth + 10;
     if (this.player.hasShield) {
       this.ctx.fillStyle = '#00ff00';
-      this.ctx.fillText('🛡️', powerUpX, this.canvas.height - 35);
-      powerUpX += 25;
+      this.ctx.fillText('🛡️', powerUpX, 16);
+      powerUpX += 18;
     }
     if (this.player.magnetActive) {
       this.ctx.fillStyle = '#ff6b6b';
-      this.ctx.fillText('🧲', powerUpX, this.canvas.height - 35);
-      powerUpX += 25;
+      this.ctx.fillText('🧲', powerUpX, 16);
+      powerUpX += 18;
     }
     if (this.player.turboActive) {
       this.ctx.fillStyle = '#ffff00';
-      this.ctx.fillText('⚡', powerUpX, this.canvas.height - 35);
-      powerUpX += 25;
+      this.ctx.fillText('⚡', powerUpX, 16);
+      powerUpX += 18;
     }
     
-    // Score and stats (right side)
+    // Stats rechts
     this.ctx.fillStyle = '#ffffff';
     this.ctx.font = 'bold 12px Arial';
     this.ctx.textAlign = 'right';
+    this.ctx.fillText(`Level: ${this.currentLevel}/${this.maxLevel}`, this.canvas.width - 10, 14);
+    this.ctx.fillText(`Score: ${this.score}`, this.canvas.width - 10, 28);
+    this.ctx.textAlign = 'left';
     
-    this.ctx.fillText(`Level: ${this.currentLevel}/${this.maxLevel}`, this.canvas.width - 10, this.canvas.height - 45);
-    this.ctx.fillText(`Score: ${this.score}`, this.canvas.width - 10, this.canvas.height - 30);
-    this.ctx.fillText(`Kartons: ${this.boxesCollected}/${this.boxesNeeded}`, this.canvas.width - 10, this.canvas.height - 15);
+    // Kartons Mitte oben
+    this.ctx.fillStyle = '#ffd91a';
+    this.ctx.textAlign = 'center';
+    this.ctx.font = 'bold 12px Arial';
+    this.ctx.fillText(`Kartons: ${this.boxesCollected}/${this.boxesNeeded}`, this.canvas.width/2, 26);
     
-    // Combo meter
+    // Combo unter der Kartonanzeige (klein)
     if (this.combo > 0) {
       this.ctx.fillStyle = '#ffd91a';
-      this.ctx.textAlign = 'center';
-      this.ctx.font = 'bold 16px Arial';
-      this.ctx.fillText(`COMBO x${this.combo}`, this.canvas.width/2, this.canvas.height - 35);
+      this.ctx.font = 'bold 11px Arial';
+      this.ctx.fillText(`COMBO x${this.combo}`, this.canvas.width/2, 14);
     }
-    
     this.ctx.textAlign = 'left';
   }
   
@@ -1447,7 +1470,7 @@ class PackQuestGame {
   
   resumeGame() {
     this.gameRunning = true;
-    this.gameLoop = requestAnimationFrame(() => this.loop());
+    this.gameLoop = requestAnimationFrame((timestamp) => this.update(timestamp));
   }
   
   getHighScore() {
@@ -1547,5 +1570,29 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
-// Game instance - Global Variable
-let game = null;
+// Exponiere Start/Stop für Button-Klicks sicher
+window.startGame = window.startGame || function startGame() {
+  const gameWrapper = document.getElementById('gameWrapper');
+  const gameIntro = document.querySelector('.game-intro');
+  if (gameIntro) gameIntro.style.display = 'none';
+  if (gameWrapper) gameWrapper.style.display = 'block';
+  
+  if (!window.game) {
+    window.game = new PackQuestGame();
+  }
+  if (window.game?.audioContext && window.game.audioContext.state === 'suspended') {
+    window.game.audioContext.resume();
+  }
+  window.game?.start?.();
+};
+
+window.resetGame = window.resetGame || function resetGame() {
+  if (window.game) {
+    window.game.restart?.();
+    window.game.start?.();
+  } else {
+    window.startGame();
+  }
+};
+
+// remove duplicate global declaration (kept earlier)

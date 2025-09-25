@@ -73,7 +73,8 @@
           <div>
             <div class="eyebrow pixel">Umzug wie aus einem Guss</div>
             <h1 class="pixel">Dein Umzug Wien. Deine Mission. Stressfrei mit PackQuest.</h1>
-            <p class="sub">Schnell, zuverlässig und fair – mit Plan, Muskelkraft und einem Team, das anpackt. Von Privatumzug bis Firmenumzug, Entrümpelung, Montage und Lager-Service in Wien und Niederösterreich. <strong>Ab 49€/Stunde</strong> mit kostenloser Besichtigung.</p>
+            <p class="sub">Schnell, zuverlässig und fair – mit Plan, Muskelkraft und einem Team, das anpackt. Von Privatumzug bis Firmenumzug, Entrümpelung, Montage und Lager-Service in Wien und Niederösterreich. 
+            <br><strong style="color: var(--color-primary);">📋 2 Mann + LKW: 60€/h | 3 Mann + LKW: 90€/h | 4 Mann + LKW: 120€/h</strong></p>
             <div class="cta-row">
               <a class="btn" href="kontakt.html#anfrage">Jetzt Angebot anfordern</a>
               <a class="btn" style="background:transparent;color:var(--color-accent);box-shadow:0 0 0 3px var(--color-accent), 0 6px 0 0 #000;" href="#leistungen">Leistungen ansehen</a>
@@ -167,6 +168,50 @@
                   <span>🎯 Level: <span id="currentLevel">1</span>/10</span>
                   <span>⚡ Combo: <span id="combo">0</span></span>
                   <span>💙 Leben: <span id="lives">3</span></span>
+                </div>
+              </div>
+              
+              <!-- 📱 MOBILE TOUCH CONTROLS - Außerhalb des Spielbereichs! -->
+              <div id="mobileControls" class="mobile-controls">
+                <div class="mobile-instructions">
+                  <p class="pixel" style="font-size: 11px; text-align: center; margin: 8px 0; color: #ffd91a;">
+                    📱 Handy-Steuerung - Buttons antippen zum Bewegen
+                  </p>
+                </div>
+                
+                <div class="controls-layout">
+                  <div class="d-pad">
+                    <div class="d-pad-row">
+                      <button class="control-btn" id="upBtn" data-direction="up">
+                        <span class="control-icon">⬆️</span>
+                      </button>
+                    </div>
+                    <div class="d-pad-row">
+                      <button class="control-btn" id="leftBtn" data-direction="left">
+                        <span class="control-icon">⬅️</span>
+                      </button>
+                      <div class="d-pad-center">🎮</div>
+                      <button class="control-btn" id="rightBtn" data-direction="right">
+                        <span class="control-icon">➡️</span>
+                      </button>
+                    </div>
+                    <div class="d-pad-row">
+                      <button class="control-btn" id="downBtn" data-direction="down">
+                        <span class="control-icon">⬇️</span>
+                      </button>
+                    </div>
+                  </div>
+                  
+                  <div class="action-buttons">
+                    <button class="action-btn pixel" id="actionBtn">
+                      <span>🎯</span><br>
+                      <small>ACTION</small>
+                    </button>
+                    <button class="action-btn pixel" id="pauseMobileBtn">
+                      <span>⏸️</span><br>
+                      <small>PAUSE</small>
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>

@@ -126,6 +126,9 @@ class PackQuestGame {
       e.preventDefault();
       this.touchControls.active = false;
     });
+    
+    // 📱 MOBILE BUTTON CONTROLS - Außerhalb des Canvas!
+    this.setupMobileControls();
   }
   
   loadAssets() {
@@ -444,6 +447,9 @@ class PackQuestGame {
   
   update(timestamp) {
     if (!this.gameRunning) return;
+    
+    // Process mobile input
+    this.processMobileInput();
     
     const deltaTime = timestamp - this.lastUpdate;
     this.lastUpdate = timestamp;
@@ -917,6 +923,7 @@ class PackQuestGame {
     this.drawEffects();
   }
   
+  
   drawBackground() {
     const levelInfo = this.levelData[this.currentLevel - 1];
     
@@ -1343,6 +1350,104 @@ class PackQuestGame {
     if (scoreEl) scoreEl.textContent = this.score;
     if (boxesEl) boxesEl.textContent = this.boxesCollected;
     if (coinsEl) coinsEl.textContent = this.coinCount;
+  }
+  
+  // 📱 MOBILE CONTROLS SETUP
+  setupMobileControls() {
+    // Mobile Button States
+    this.mobileButtons = {
+      up: false, down: false, left: false, right: false,
+      action: false, pause: false
+    };
+    
+    // Button Event Listeners mit Touch Feedback
+    const buttons = ['up', 'down', 'left', 'right'];
+    buttons.forEach(direction => {
+      const btn = document.getElementById(direction + 'Btn');
+      if (btn) {
+        // Touch Start
+        btn.addEventListener('touchstart', (e) => {
+          e.preventDefault();
+          this.mobileButtons[direction] = true;
+          btn.style.transform = 'scale(0.95) translateY(2px)';
+          btn.style.borderColor = '#ffd91a';
+          
+          // Haptisches Feedback
+          if (navigator.vibrate) navigator.vibrate(50);
+        });
+        
+        // Touch End
+        btn.addEventListener('touchend', (e) => {
+          e.preventDefault();
+          this.mobileButtons[direction] = false;
+          btn.style.transform = '';
+          btn.style.borderColor = '#1f6feb';
+        });
+        
+        // Prevent context menu
+        btn.addEventListener('contextmenu', (e) => e.preventDefault());
+      }
+    });
+    
+    // Action Button
+    const actionBtn = document.getElementById('actionBtn');
+    if (actionBtn) {
+      actionBtn.addEventListener('touchstart', (e) => {
+        e.preventDefault();
+        this.mobileButtons.action = true;
+        if (navigator.vibrate) navigator.vibrate(75);
+      });
+      
+      actionBtn.addEventListener('touchend', (e) => {
+        e.preventDefault();
+        this.mobileButtons.action = false;
+      });
+    }
+    
+    // Mobile Pause Button
+    const pauseMobileBtn = document.getElementById('pauseMobileBtn');
+    if (pauseMobileBtn) {
+      pauseMobileBtn.addEventListener('touchstart', (e) => {
+        e.preventDefault();
+        this.togglePause();
+        if (navigator.vibrate) navigator.vibrate(100);
+      });
+    }
+  }
+  
+  // Toggle Pause Function
+  togglePause() {
+    if (this.gameRunning) {
+      this.pauseGame();
+    } else {
+      this.resumeGame();
+    }
+  }
+  
+  pauseGame() {
+    this.gameRunning = false;
+    if (this.gameLoop) {
+      cancelAnimationFrame(this.gameLoop);
+    }
+    
+    // Show pause overlay
+    this.ctx.fillStyle = 'rgba(0, 0, 0, 0.7)';
+    this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
+    
+    this.ctx.fillStyle = '#ffd91a';
+    this.ctx.font = 'bold 24px "Press Start 2P", monospace';
+    this.ctx.textAlign = 'center';
+    this.ctx.fillText('PAUSIERT', this.canvas.width/2, this.canvas.height/2);
+    
+    this.ctx.fillStyle = '#fff';
+    this.ctx.font = '12px Arial';
+    this.ctx.fillText('Berühre PAUSE um fortzusetzen', this.canvas.width/2, this.canvas.height/2 + 40);
+    this.ctx.textAlign = 'left';
+  }
+  
+  resumeGame() {
+    this.gameRunning = true;
+    this.gameLoop = requestAnimationFrame(() => this.loop());
   }
   
   getHighScore() {

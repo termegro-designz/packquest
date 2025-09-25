@@ -1546,3 +1546,6 @@ style.textContent = `
   }
 `;
 document.head.appendChild(style);
+
+// Game instance - Global Variable
+let game = null;

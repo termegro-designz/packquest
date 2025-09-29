@@ -443,11 +443,19 @@ class PackQuestGame {
     if (this.gameRunning) return;
     
     this.gameRunning = true;
-    this.setupCanvas();
+    
+    // Canvas ist bereits in init() initialisiert
+    if (!this.canvas) {
+      console.error('❌ Canvas nicht gefunden!');
+      return;
+    }
+    
     this.setupMobileControls(); // Mobile Controls initialisieren
     this.setupLevel();
     this.lastUpdate = performance.now();
     this.gameLoop = requestAnimationFrame((timestamp) => this.update(timestamp));
+    
+    console.log('🎮 Spiel gestartet!');
   }
   
   stop() {

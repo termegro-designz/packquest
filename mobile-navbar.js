@@ -9,23 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // Mobile Navigation State
   let mobileMenuOpen = false;
   
-  // Create mobile overlay
-  const overlay = document.createElement('div');
-  overlay.className = 'mobile-overlay';
-  overlay.style.cssText = `
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.7);
-    z-index: 1000;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s ease;
-    pointer-events: none;
-  `;
-  document.body.appendChild(overlay);
+  // KEIN OVERLAY! Das blockiert die Klicks!
   
   // Find hamburger and menu
   const hamburger = document.querySelector('.hamburger button');
@@ -47,20 +31,14 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('📱 Menu toggle:', mobileMenuOpen);
     
     if (mobileMenuOpen) {
-      // Open menu
+      // Open menu - OHNE OVERLAY!
       menu.classList.add('mobile-open');
-      overlay.style.opacity = '1';
-      overlay.style.visibility = 'visible';
-      overlay.style.pointerEvents = 'auto';
       document.body.style.overflow = 'hidden';
       hamburger.innerHTML = '✕';
       hamburger.setAttribute('aria-label', 'Menü schließen');
     } else {
       // Close menu
       menu.classList.remove('mobile-open');
-      overlay.style.opacity = '0';
-      overlay.style.visibility = 'hidden';
-      overlay.style.pointerEvents = 'none';
       document.body.style.overflow = '';
       hamburger.innerHTML = '☰';
       hamburger.setAttribute('aria-label', 'Menü öffnen');
@@ -75,10 +53,10 @@ document.addEventListener('DOMContentLoaded', function() {
     toggleMobileMenu();
   });
   
-  // Overlay click to close
-  overlay.addEventListener('click', function() {
-    console.log('🌙 Overlay clicked - closing menu');
-    if (mobileMenuOpen) {
+  // Click outside menu to close
+  document.addEventListener('click', function(e) {
+    if (mobileMenuOpen && !menu.contains(e.target) && !hamburger.contains(e.target)) {
+      console.log('🌙 Clicked outside menu - closing');
       toggleMobileMenu();
     }
   });
@@ -132,7 +110,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
   
-  // Add mobile-specific CSS
+  // Einfaches mobiles CSS - KEIN OVERLAY!
   const mobileCSS = document.createElement('style');
   mobileCSS.textContent = `
     @media (max-width: 1024px) {
@@ -141,46 +119,44 @@ document.addEventListener('DOMContentLoaded', function() {
         opacity: 1 !important;
         visibility: visible !important;
         pointer-events: auto !important;
-        z-index: 1004 !important;
       }
       
       .menu.mobile-open a {
         pointer-events: auto !important;
         cursor: pointer !important;
         display: block !important;
-        padding: 18px 24px !important;
-        margin: 4px 0 !important;
+        padding: 20px 24px !important;
+        margin: 6px 0 !important;
         border-radius: 12px !important;
         transition: all 0.2s ease !important;
-        background: rgba(255,255,255,0.1) !important;
-        border: 1px solid rgba(255,217,26,0.3) !important;
-        position: relative !important;
-        z-index: 1005 !important;
+        background: rgba(255,255,255,0.08) !important;
+        border: 1px solid rgba(255,217,26,0.4) !important;
+        color: #fff !important;
       }
       
       .menu.mobile-open a:hover,
       .menu.mobile-open a:active,
       .menu.mobile-open a:focus {
-        background: rgba(255,217,26,0.4) !important;
+        background: rgba(255,217,26,0.6) !important;
         color: #111 !important;
-        transform: translateX(8px) scale(0.98) !important;
-        border-color: rgba(255,217,26,0.6) !important;
+        transform: translateX(8px) !important;
+        border-color: rgba(255,217,26,0.8) !important;
       }
       
       .hamburger button {
-        font-size: 18px !important;
-        padding: 12px !important;
+        font-size: 20px !important;
+        padding: 14px !important;
         border-radius: 8px !important;
         background: rgba(255,217,26,0.2) !important;
         color: #ffd91a !important;
-        border: 1px solid rgba(255,217,26,0.5) !important;
+        border: 2px solid rgba(255,217,26,0.5) !important;
         cursor: pointer !important;
         transition: all 0.2s ease !important;
       }
       
       .hamburger button:hover,
       .hamburger button:active {
-        background: rgba(255,217,26,0.4) !important;
+        background: rgba(255,217,26,0.5) !important;
         transform: scale(0.95) !important;
       }
     }

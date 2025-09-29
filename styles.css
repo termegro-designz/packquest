@@ -273,7 +273,13 @@ header {
     justify-content: flex-start;
     align-items: stretch;
   }
-  .menu.open { transform: translateX(0); }
+  .menu.open,
+  .menu.mobile-open { 
+    transform: translateX(0); 
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
   .menu a {
     padding: 18px 20px;
     font-size: 13px;

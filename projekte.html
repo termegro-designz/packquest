@@ -34,7 +34,7 @@
           <span class="brand-icon" aria-hidden="true"></span>
           <span class="brand-name">PACKQUEST</span>
         </a>
-        <nav class="menu" id="mainMenuProj" aria-label="Hauptnavigation">
+        <nav class="menu" id="mainMenu" aria-label="Hauptnavigation">
           <a href="index.html" class="pixel">🏠 Start</a>
           <a href="umzuege.html" class="pixel">🚚 Umzüge</a>
           <a href="entruempelung.html" class="pixel">🧹 Entrümpelung</a>
@@ -46,7 +46,7 @@
         </nav>
         <a class="btn header-cta" href="kontakt.html#anfrage">Angebot anfordern</a>
         <div class="hamburger">
-          <button type="button" aria-label="Menü öffnen" onclick="document.getElementById('mainMenuProj').classList.toggle('open')">☰</button>
+          <button type="button" aria-label="Menü öffnen" onclick="document.getElementById('mainMenu').classList.toggle('open')">☰</button>
         </div>
       </div>
     </header>
@@ -131,7 +131,37 @@
     </a>
 
     <script src="mobile-navbar.js"></script>
-    <script src="modern-gallery.js"></script>
     <script src="scripts.js"></script>
+    
+    <script>
+      // Simple Gallery für Projekte (ohne komplette Seiten-Überschreibung)
+      document.addEventListener('DOMContentLoaded', function() {
+        console.log('✅ Projekte-Seite geladen - Original Gallery aktiv');
+        
+        // Simple image gallery logic hier falls nötig
+        const images = [
+          'img/IMG-20250925-WA0022.jpg',
+          'img/IMG-20250925-WA0027.jpg', 
+          'img/IMG-20250925-WA0023.jpg',
+          'img/IMG-20250925-WA0028.jpg',
+          'img/IMG-20250925-WA0029.jpg',
+          'img/readybilder/klavier_umzug_wien.png',
+          'img/readybilder/umzug_wien.png',
+          'img/readybilder/räumung_wien.png',
+          'img/readybilder/lkw_vorher_nachher_1.png',
+          'img/readybilder/lkw_vorher_nachher_2.png',
+          'img/IMG-20250828-WA0008.jpg',
+          'img/IMG-20250828-WA0009.jpg'
+        ];
+        
+        // Update image counter
+        const totalImagesEl = document.getElementById('totalImages');
+        if (totalImagesEl) {
+          totalImagesEl.textContent = images.length;
+        }
+        
+        console.log(`📸 Gallery mit ${images.length} Bildern initialisiert`);
+      });
+    </script>
   </body>
 </html>

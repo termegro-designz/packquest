@@ -1573,9 +1573,20 @@ function startGame() {
     game.audioContext.resume();
   }
   
+  // 🎮 RETRO MOBILE CONTROLS aktivieren
+  if (window.initRetroControls && isMobileDevice()) {
+    game.retroControls = window.initRetroControls(game);
+    console.log('🎮 Retro Mobile Controls aktiviert!');
+  }
+  
   if (game) {
     game.start();
   }
+}
+
+function isMobileDevice() {
+  return /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ||
+         (window.innerWidth <= 1024 && 'ontouchstart' in window);
 }
 
 function resetGame() {

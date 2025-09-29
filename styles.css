@@ -213,9 +213,42 @@ header {
 .menu a.active { color: #111; background: linear-gradient(135deg, #ffd91a, #ffea86); box-shadow: 0 0 0 2px rgba(255,217,26,0.35) inset, 0 10px 22px rgba(255,217,26,0.25); }
 
 .hamburger { display: none; }
-.hamburger button { width: 42px; height: 42px; border-radius: 10px; border: 2px solid rgba(255,217,26,0.6); background: rgba(31,111,235,0.15); box-shadow: 0 4px 0 #000; color: #fff; cursor: pointer; }
+.hamburger button { 
+  width: 42px; 
+  height: 42px; 
+  border-radius: 10px; 
+  border: 2px solid rgba(255,217,26,0.6); 
+  background: rgba(31,111,235,0.15); 
+  box-shadow: 0 4px 0 #000; 
+  color: #fff; 
+  cursor: pointer;
+  transition: transform 150ms ease;
+}
+.hamburger button:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 #000;
+}
 
 .header-cta { justify-self: end; }
+
+/* Mobile Navigation Overlay */
+.nav-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 250ms ease, visibility 250ms ease;
+}
+
+.nav-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
 
 /* Responsive */
 @media (max-width: 1024px) {
@@ -243,6 +276,29 @@ header {
     padding: 16px 18px;
     font-size: 12px;
     border-radius: 12px;
+  }
+
+  /* Close button in mobile menu */
+  .menu-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    border: none;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border-radius: 8px;
+    font-size: 24px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 150ms ease;
+  }
+  
+  .menu-close:hover {
+    background: rgba(255, 255, 255, 0.2);
   }
 }
 

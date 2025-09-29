@@ -347,27 +347,27 @@ document.addEventListener('DOMContentLoaded', function() {
   // Update game stats periodically
   setInterval(updateGameStats, 1000);
   
-  // Preload game resources
-  preloadResources();
+  // Game assets werden erst beim Spiel-Start geladen
   setupContactSubmission();
 });
 
-// Preload kritische Ressourcen
-function preloadResources() {
+// Preload kritische Ressourcen (nur beim Game-Start)
+function preloadGameAssets() {
+  if (window.gameAssetsPreloaded) return;
+  
   const criticalImages = [
     'charakter_pq-01.svg',
-    'lkw_pq-01.svg',
+    'lkw_pq-01.svg', 
     'coin_pq.svg',
     'sessel_pq.svg'
   ];
   
   criticalImages.forEach(src => {
-    const link = document.createElement('link');
-    link.rel = 'preload';
-    link.href = src;
-    link.as = 'image';
-    document.head.appendChild(link);
+    const img = new Image();
+    img.src = src; // Immediate load ohne preload warning
   });
+  
+  window.gameAssetsPreloaded = true;
 }
 
 // Kontaktformular: AJAX Submit an Serverless API

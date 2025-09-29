@@ -168,6 +168,15 @@ class PackQuestGame {
   }
   
   setupSounds() {
+    // Audio wird erst nach User-Interaction initialisiert
+    this.audioContext = null;
+    this.soundsReady = false;
+    this.sounds = {};
+  }
+
+  initializeAudio() {
+    if (this.audioContext) return;
+    
     try {
       this.audioContext = new (window.AudioContext || window.webkitAudioContext)();
       this.sounds = {
@@ -177,6 +186,7 @@ class PackQuestGame {
         levelup: this.createSound([261.63, 329.63, 392, 523.25, 659.25], 0.4), // Triumphant
         combo: this.createSound([880, 987.77, 1108.73], 0.1) // High combo sound
       };
+      this.soundsReady = true;
     } catch (e) {
       console.warn('Web Audio not supported:', e);
       this.soundsEnabled = false;
@@ -1531,7 +1541,13 @@ function startGame() {
     game = new PackQuestGame();
   }
   
-  // Enable audio context on user interaction
+  // Audio erst nach User-Gesture initialisieren
+  game.initializeAudio();
+  
+  // Game Assets vorladen
+  if (window.preloadGameAssets) {
+    window.preloadGameAssets();
+  }
   if (game.audioContext && game.audioContext.state === 'suspended') {
     game.audioContext.resume();
   }

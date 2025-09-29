@@ -3,28 +3,110 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Datenschutz | PackQuest</title>
+    <title>Datenschutz | PackQuest Wien - Ihre Daten sind sicher</title>
+    <meta name="description" content="Datenschutzerklärung PackQuest Wien. Ihre Daten sind bei uns sicher. DSGVO-konform." />
+    <meta name="robots" content="index, follow" />
+    
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Press+Start+2P&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <header>
-      <div class="container nav">
-        <a class="logo" href="index.html"><span class="logo-mark"></span><span class="logo-text pixel">PACKQUEST</span></a>
-        <nav class="nav-links"><a href="index.html#leistungen">Leistungen</a><a href="kontakt.html">Kontakt</a></nav>
-        <a class="btn" href="kontakt.html#anfrage">Anfrage</a>
+    <header class="header">
+      <div class="container nav-premium">
+        <a href="index.html" class="brand" aria-label="PackQuest Startseite">
+          <span class="brand-icon" aria-hidden="true"></span>
+          <span class="brand-name">PACKQUEST</span>
+        </a>
+        <nav class="menu" id="mainMenuDS" aria-label="Hauptnavigation">
+          <a href="index.html" class="pixel">🏠 Start</a>
+          <a href="umzuege.html" class="pixel">🚚 Umzüge</a>
+          <a href="entruempelung.html" class="pixel">🧹 Entrümpelung</a>
+          <a href="montage.html" class="pixel">🔧 Montage</a>
+          <a href="klaviertransport.html" class="pixel">🎹 Klavier</a>
+          <a href="wohnungsuebergabe.html" class="pixel">🏢 Übergabe</a>
+          <a href="projekte.html" class="pixel">📸 Projekte</a>
+          <a href="kontakt.html" class="pixel">📞 Kontakt</a>
+        </nav>
+        <a class="btn header-cta" href="kontakt.html#anfrage">Angebot anfordern</a>
+        <div class="hamburger">
+          <button type="button" aria-label="Menü öffnen" onclick="document.getElementById('mainMenuDS').classList.toggle('open')">☰</button>
+        </div>
       </div>
     </header>
+
     <main class="container" style="padding:32px 0 40px;">
-      <h1 class="pixel" style="margin:0 0 12px;">Datenschutzerklärung</h1>
-      <div class="card" style="margin-top:18px;">
-        <p>Platzhaltertext. Hier folgt Ihre DSGVO-konforme Datenschutzerklärung inkl. Kontakt, Zwecke, Rechtsgrundlagen, Speicherdauer, Empfänger, Rechte der Betroffenen, Cookies, Webanalyse etc.</p>
+      
+      <!-- Hero -->
+      <div style="text-align: center; margin-bottom: 40px; padding: 30px 20px; background: linear-gradient(135deg, rgba(31,111,235,0.1), rgba(255,217,26,0.05)); border-radius: 20px; border: 2px solid rgba(31,111,235,0.3);">
+        <h1 class="pixel" style="font-size: 24px; margin: 0 0 16px; color: #ffd91a;">🛡️ Datenschutz bei PackQuest</h1>
+        <p style="color: #9aa7b2;">Ihre Daten sind bei uns sicher! DSGVO-konform seit 2018.</p>
       </div>
+
+      <!-- Datenschutz Content -->
+      <div style="max-width: 700px; margin: 0 auto;">
+        
+        <!-- Game-Style Intro -->
+        <div style="text-align: center; margin-bottom: 30px; padding: 20px; background: linear-gradient(135deg, rgba(15, 19, 27, 0.95), rgba(31, 35, 50, 0.9)); border-radius: 16px; border: 2px solid rgba(31,111,235,0.3);">
+          <div class="pixel" style="color: #ffd91a; margin-bottom: 8px;">🎮 LEVEL: DATENSCHUTZ</div>
+          <p style="font-size: 14px; color: #e6edf3;">Mission: Ihre Daten schützen! Achievement: DSGVO-Compliance erreicht! 🏆</p>
+        </div>
+
+        <div style="margin-bottom: 30px;">
+          <h2 class="pixel" style="color: #ffd91a; margin-bottom: 16px; font-size: 16px;">📊 Welche Daten sammeln wir?</h2>
+          <div style="background: rgba(31,111,235,0.1); padding: 20px; border-radius: 12px; border-left: 4px solid #1f6feb;">
+            <p><strong>🎯 Kontaktformular:</strong><br>
+            Name, E-Mail, Telefon, Nachricht - nur was Sie uns freiwillig mitteilen!</p>
+            <p style="margin-top: 12px;"><strong>🍪 Cookies:</strong><br>
+            Technisch notwendige Cookies für die Website-Funktion. Keine Tracking-Cookies!</p>
+            <p style="margin-top: 12px;"><strong>📱 WhatsApp:</strong><br>
+            Bei WhatsApp-Kontakt gelten deren Datenschutzbestimmungen.</p>
+          </div>
+        </div>
+
+        <div style="margin-bottom: 30px;">
+          <h2 class="pixel" style="color: #ffd91a; margin-bottom: 16px; font-size: 16px;">🔐 Wie schützen wir Ihre Daten?</h2>
+          <div style="background: rgba(255,217,26,0.1); padding: 20px; border-radius: 12px; border-left: 4px solid #ffd91a;">
+            <p><strong>🛡️ Verschlüsselung:</strong> SSL-Verschlüsselung auf der gesamten Website</p>
+            <p><strong>💾 Speicherung:</strong> Sichere Server in Österreich/EU</p>
+            <p><strong>🗑️ Löschung:</strong> Automatische Löschung nach 3 Jahren ohne Kontakt</p>
+            <p><strong>👥 Zugriff:</strong> Nur autorisierte Mitarbeiter, keine Weitergabe an Dritte</p>
+          </div>
+        </div>
+
+        <div style="margin-bottom: 30px;">
+          <h2 class="pixel" style="color: #ffd91a; margin-bottom: 16px; font-size: 16px;">⚡ Ihre Rechte</h2>
+          <div style="background: rgba(255,111,53,0.1); padding: 20px; border-radius: 12px; border-left: 4px solid #ff6f35;">
+            <p><strong>📞 Auskunft:</strong> Jederzeit kostenlos unter 0664 1101057</p>
+            <p><strong>📝 Berichtigung:</strong> Falsche Daten korrigieren lassen</p>
+            <p><strong>🗑️ Löschung:</strong> Daten löschen lassen ("Recht auf Vergessenwerden")</p>
+            <p><strong>📤 Übertragung:</strong> Daten in maschinenlesbarem Format erhalten</p>
+            <p><strong>🚫 Widerspruch:</strong> Der Datenverarbeitung jederzeit widersprechen</p>
+          </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 40px; padding: 20px; background: linear-gradient(135deg, rgba(15, 19, 27, 0.95), rgba(31, 35, 50, 0.9)); border-radius: 16px; border: 2px solid rgba(40,167,69,0.3);">
+          <div class="pixel" style="color: #28a745; margin-bottom: 8px;">✅ ACHIEVEMENT UNLOCKED</div>
+          <p style="font-size: 14px; color: #e6edf3;">Datenschutz verstanden! Sie haben die Kontrolle über Ihre Daten. 🎉</p>
+          <a class="btn" href="kontakt.html" style="margin-top: 16px; background: #28a745; border-color: #28a745;">📞 Sicher kontaktieren</a>
+        </div>
+
+      </div>
+
     </main>
+    
     <footer>
-      <div class="container muted">© PackQuest</div>
+      <div class="container muted">© PackQuest · <a class="muted" href="impressum.html">Impressum</a> · <a class="muted" href="datenschutz.html">Datenschutz</a> · <a class="muted" href="agb.html">AGB</a></div>
     </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/436641101057?text=Hallo%20PackQuest%2C%20ich%20habe%20eine%20Frage%20zum%20Datenschutz." class="whatsapp-float" aria-label="WhatsApp Kontakt" title="Jetzt per WhatsApp kontaktieren">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.89 3.488"/>
+      </svg>
+    </a>
+
+    <script src="mobile-nav.js"></script>
+    <script src="scripts.js"></script>
   </body>
-  </html>
-
-
+</html>

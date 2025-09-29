@@ -67,42 +67,10 @@
         </div>
       </div>
 
-      <!-- Moderne Projekt-Galerie -->
-      <section style="margin-bottom: 40px;">
-        <h2 class="pixel" style="text-align: center; margin: 0 0 32px; font-size: 24px;">🏆 Unsere Erfolgsprojekte in Wien</h2>
-
-        <!-- Flüssige Premium Diashow -->
-        <div class="modern-gallery" id="modernGallery">
-          <div class="gallery-main">
-            <div class="main-image-container">
-              <img id="mainImage" src="img/IMG-20250925-WA0022.jpg" alt="PackQuest Projekte Wien" class="main-image" />
-              <div class="image-counter">
-                <span id="currentImageNumber">1</span> / <span id="totalImages">12</span>
-              </div>
-              <div class="navigation-arrows">
-                <button class="nav-arrow prev" id="prevBtn" aria-label="Vorheriges Bild">‹</button>
-                <button class="nav-arrow next" id="nextBtn" aria-label="Nächstes Bild">›</button>
-              </div>
-            </div>
-            
-            <div class="image-info">
-              <h3 id="imageTitle">Professioneller Umzug Wien</h3>
-              <p id="imageDescription">Sorgfältig verpackt, sicher transportiert – Ihr Umzug in besten Händen.</p>
-              <div class="image-tags">
-                <span class="tag" id="imageTag1">Umzug</span>
-                <span class="tag" id="imageTag2">Wien</span>
-              </div>
-            </div>
-          </div>
-          
-          <!-- Thumbnail Navigation -->
-          <div class="thumbnail-strip">
-            <div class="thumbnails" id="thumbnails">
-              <!-- Thumbnails werden per JavaScript geladen -->
-            </div>
-          </div>
-        </div>
-      </section>
+      <!-- MODERN GALLERY CONTAINER (wird von modern-gallery.js befüllt) -->
+      <div id="galleryContainer" style="margin-bottom: 40px;">
+        <!-- Modern Gallery wird hier eingefügt und ersetzt diesen Inhalt -->
+      </div>
 
       <!-- CTA Section -->
       <section style="text-align: center; padding: 40px 20px; background: linear-gradient(135deg, rgba(255,217,26,0.1), rgba(31,111,235,0.05)); border-radius: 15px; margin-bottom: 40px;">
@@ -131,37 +99,7 @@
     </a>
 
     <script src="mobile-navbar.js"></script>
+    <script src="modern-gallery.js"></script>
     <script src="scripts.js"></script>
-    
-    <script>
-      // Simple Gallery für Projekte (ohne komplette Seiten-Überschreibung)
-      document.addEventListener('DOMContentLoaded', function() {
-        console.log('✅ Projekte-Seite geladen - Original Gallery aktiv');
-        
-        // Simple image gallery logic hier falls nötig
-        const images = [
-          'img/IMG-20250925-WA0022.jpg',
-          'img/IMG-20250925-WA0027.jpg', 
-          'img/IMG-20250925-WA0023.jpg',
-          'img/IMG-20250925-WA0028.jpg',
-          'img/IMG-20250925-WA0029.jpg',
-          'img/readybilder/klavier_umzug_wien.png',
-          'img/readybilder/umzug_wien.png',
-          'img/readybilder/räumung_wien.png',
-          'img/readybilder/lkw_vorher_nachher_1.png',
-          'img/readybilder/lkw_vorher_nachher_2.png',
-          'img/IMG-20250828-WA0008.jpg',
-          'img/IMG-20250828-WA0009.jpg'
-        ];
-        
-        // Update image counter
-        const totalImagesEl = document.getElementById('totalImages');
-        if (totalImagesEl) {
-          totalImagesEl.textContent = images.length;
-        }
-        
-        console.log(`📸 Gallery mit ${images.length} Bildern initialisiert`);
-      });
-    </script>
   </body>
 </html>

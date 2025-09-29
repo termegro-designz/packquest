@@ -477,9 +477,19 @@ class RetroMobileControls {
   handleDpadPress(direction, isPressed) {
     this.dpadPressed[direction] = isPressed;
     
+    // KRITISCH: Initialisiere mobileButtons falls nicht vorhanden
+    if (this.game && !this.game.mobileButtons) {
+      this.game.mobileButtons = {
+        up: false, down: false, left: false, right: false,
+        action: false, pause: false
+      };
+      console.log('🔧 Game mobileButtons initialisiert');
+    }
+    
     // Update game input
     if (this.game && this.game.mobileButtons) {
       this.game.mobileButtons[direction] = isPressed;
+      console.log(`🎮 Game Input: ${direction} = ${isPressed}`);
     }
     
     // Visual feedback

@@ -443,6 +443,9 @@ class PackQuestGame {
     if (this.gameRunning) return;
     
     this.gameRunning = true;
+    this.setupCanvas();
+    this.setupMobileControls(); // Mobile Controls initialisieren
+    this.setupLevel();
     this.lastUpdate = performance.now();
     this.gameLoop = requestAnimationFrame((timestamp) => this.update(timestamp));
   }

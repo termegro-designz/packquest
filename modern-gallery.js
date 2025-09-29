@@ -192,9 +192,14 @@ class ModernGallery {
       </div>
     `;
 
-    // Insert into page
-    const container = document.querySelector('.container') || document.body;
-    container.innerHTML = galleryHTML;
+    // Insert into page - NUR in spezifischen Gallery Container (NICHT ganze Seite!)
+    const galleryContainer = document.getElementById('galleryContainer') || document.querySelector('.gallery-content');
+    if (galleryContainer) {
+      galleryContainer.innerHTML = galleryHTML;
+      console.log('✅ Modern Gallery in spezifischen Container geladen');
+    } else {
+      console.warn('❌ Gallery Container nicht gefunden - Gallery nicht geladen');
+    }
   }
 
   bindEvents() {

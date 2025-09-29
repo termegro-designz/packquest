@@ -32,22 +32,29 @@ class MobileNavigation {
   }
 
   initHamburgerButtons() {
-    // Find all hamburger buttons and menu elements
+    // Remove all onclick handlers and replace with our system
     const hamburgerButtons = document.querySelectorAll('.hamburger button');
     
     hamburgerButtons.forEach(button => {
-      button.addEventListener('click', (e) => {
-        e.preventDefault();
+      // Get menu ID from onclick attribute
+      const onclickAttr = button.getAttribute('onclick');
+      if (onclickAttr) {
+        const menuId = onclickAttr.match(/getElementById\('([^']+)'\)/)?.[1];
         
-        // Get the corresponding menu
-        const menuId = button.getAttribute('onclick')?.match(/getElementById\('([^']+)'\)/)?.[1];
-        if (menuId) {
+        // Remove old onclick
+        button.removeAttribute('onclick');
+        
+        // Add new event listener
+        button.addEventListener('click', (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          
           const menu = document.getElementById(menuId);
           if (menu) {
             this.toggleMenu(menu);
           }
-        }
-      });
+        });
+      }
     });
   }
 
@@ -84,31 +91,48 @@ class MobileNavigation {
   }
 
   initMobileNavLinks() {
-    // Direkte Navigation ohne Event-Prevention
+    // Direkte Navigation - Links sollen normal funktionieren
     document.addEventListener('click', (e) => {
       const navLink = e.target.closest('.menu a');
+      
       if (navLink && this.isOpen) {
-        // Visuelles Feedback
-        navLink.style.background = 'rgba(255,217,26,0.3)';
+        // Prüfe ob es ein interner Link ist
+        const href = navLink.getAttribute('href');
         
-        // Menu nach kurzer Verzögerung schließen (für Animation)
-        setTimeout(() => {
+        if (href && !href.startsWith('#')) {
+          // Externer/Page Link - Menu schließen und navigieren
           this.closeMenu();
-        }, 150);
-        
-        // Link normal funktionieren lassen (nicht preventDefault!)
+          // Browser navigiert automatisch durch den Link
+        } else if (href && href.startsWith('#')) {
+          // Anker Link - Menu schließen aber auf gleicher Seite bleiben
+          setTimeout(() => {
+            this.closeMenu();
+          }, 100);
+        }
       }
     });
 
-    // Touch feedback für mobile
+    // Touch feedback
     document.addEventListener('touchstart', (e) => {
       const navLink = e.target.closest('.menu a');
-      if (navLink) {
-        navLink.style.background = 'rgba(31,111,235,0.3)';
+      if (navLink && this.isOpen) {
+        // Visuelles Touch-Feedback
+        navLink.style.background = 'rgba(255,217,26,0.4)';
+        navLink.style.transform = 'scale(0.98)';
+        
         setTimeout(() => {
           navLink.style.background = '';
+          navLink.style.transform = '';
         }, 200);
       }
+    });
+    
+    // Stelle sicher, dass Links wirklich klickbar sind
+    const menuLinks = document.querySelectorAll('.menu a');
+    menuLinks.forEach(link => {
+      link.style.pointerEvents = 'auto';
+      link.style.position = 'relative';
+      link.style.zIndex = '1003';
     });
   }
 }

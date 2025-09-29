@@ -275,21 +275,27 @@ header {
   }
   .menu.open { transform: translateX(0); }
   .menu a {
-    padding: 16px 18px;
-    font-size: 12px;
+    padding: 18px 20px;
+    font-size: 13px;
     border-radius: 12px;
     display: block;
     width: 100%;
     text-align: left;
-    pointer-events: auto;
-    cursor: pointer;
+    pointer-events: auto !important;
+    cursor: pointer !important;
+    position: relative;
+    z-index: 1003;
+    min-height: 44px;
     -webkit-tap-highlight-color: rgba(255,217,26,0.3);
+    touch-action: manipulation;
   }
   
+  .menu a:hover,
   .menu a:active,
   .menu a:focus {
-    background: rgba(31,111,235,0.3) !important;
-    color: #fff !important;
+    background: rgba(255,217,26,0.4) !important;
+    color: #111 !important;
+    transform: scale(0.98);
   }
 
   /* Close button in mobile menu */

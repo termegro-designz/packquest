@@ -1,6 +1,7 @@
-// Moderne Galerie für PackQuest Projekte
+// 🖼️ PACKQUEST PROJEKT GALERIE - Nur existierende Bilder!
 class ModernGallery {
   constructor() {
+    // NUR BILDER DIE WIRKLICH EXISTIEREN!
     this.images = [
       {
         src: 'img/IMG-20250925-WA0022.jpg',
@@ -21,459 +22,552 @@ class ModernGallery {
         tags: ['Entrümpelung', 'Sauber']
       },
       {
-        src: 'img/readybilder/IMG-20240923-WA0089.jpg',
-        title: 'Möbelmontage IKEA',
-        description: 'Professioneller Aufbau aller IKEA-Möbel – schnell und zuverlässig.',
-        tags: ['Montage', 'IKEA']
+        src: 'img/IMG-20250925-WA0028.jpg',
+        title: 'Möbelmontage Profi',
+        description: 'Professioneller Aufbau aller Möbel – schnell und zuverlässig.',
+        tags: ['Montage', 'Möbel']
       },
       {
-        src: 'img/readybilder/IMG-20240923-WA0090.jpg',
-        title: 'Küchenmontage Komplett',
-        description: 'Von der Demontage bis zum fertigen Aufbau – alles aus einer Hand.',
+        src: 'img/IMG-20250925-WA0029.jpg',
+        title: 'Küchenmontage Premium',
+        description: 'Maßgenaue Küchenplanung und professionelle Montage.',
         tags: ['Küche', 'Montage']
       },
       {
-        src: 'img/readybilder/IMG-20240923-WA0091.jpg',
-        title: 'Schwertransport Klavier',
-        description: 'Empfindliche Güter transportieren wir mit spezieller Sorgfalt.',
-        tags: ['Klavier', 'Schwertransport']
+        src: 'img/readybilder/klavier_umzug_wien.png',
+        title: 'Klaviertransport Wien',
+        description: 'Sensible Instrumente sicher transportiert – Ihre Musik in sicheren Händen.',
+        tags: ['Klavier', 'Transport']
       },
       {
-        src: 'img/readybilder/IMG-20240923-WA0092.jpg',
-        title: 'Verpackungsservice',
-        description: 'Professionelles Verpacken für maximalen Schutz Ihrer Sachen.',
+        src: 'img/readybilder/umzug_wien.png',
+        title: 'Umzug Wien Profi',
+        description: 'Von A bis Z – komplette Wohnungsumzüge durch unsere Experten.',
+        tags: ['Umzug', 'Wien']
+      },
+      {
+        src: 'img/readybilder/räumung_wien.png',
+        title: 'Räumung Wien',
+        description: 'Professionelle Entrümpelung – besenrein übergeben.',
+        tags: ['Räumung', 'Entrümpelung']
+      },
+      {
+        src: 'img/readybilder/lkw_vorher_nachher_1.png',
+        title: 'LKW Beladung Vorher-Nachher',
+        description: 'Optimale Raumnutzung – Effizienz die sich auszahlt.',
+        tags: ['LKW', 'Effizienz']
+      },
+      {
+        src: 'img/readybilder/lkw_vorher_nachher_2.png',
+        title: 'Professionelle Beladung',
+        description: 'Jeder Zentimeter wird optimal genutzt für Ihren Umzug.',
+        tags: ['Beladung', 'Profi']
+      },
+      {
+        src: 'img/IMG-20250828-WA0008.jpg',
+        title: 'Wohnungsübergabe',
+        description: 'Perfekt vorbereitet für die Schlüsselübergabe.',
+        tags: ['Übergabe', 'Sauber']
+      },
+      {
+        src: 'img/IMG-20250828-WA0009.jpg',
+        title: 'Komplette Einrichtung',
+        description: 'Vollständige Wohnungseinrichtung durch unser erfahrenes Team.',
+        tags: ['Einrichtung', 'Komplett']
+      },
+      {
+        src: 'img/IMG-20250828-WA0010.jpg',
+        title: 'Präzise Verpackung',
+        description: 'Sicher verpackt für den Transport – Schutz für Ihre Wertsachen.',
         tags: ['Verpackung', 'Schutz']
       },
       {
-        src: 'img/readybilder/IMG-20240923-WA0093.jpg',
-        title: 'Firmenumzug Wien',
-        description: 'Büroumzüge über Nacht oder am Wochenende – ohne Betriebsunterbrechung.',
-        tags: ['Büro', 'Firma']
+        src: 'img/IMG-20250828-WA0011.jpg',
+        title: 'Teamarbeit Umzug',
+        description: 'Unser eingespieltes Team arbeitet Hand in Hand.',
+        tags: ['Team', 'Zusammenarbeit']
       },
       {
-        src: 'img/readybilder/IMG-20240923-WA0094.jpg',
-        title: 'Seniorenumzug Betreuung',
-        description: 'Einfühlsam und geduldig – wir nehmen uns Zeit für Ihre Bedürfnisse.',
-        tags: ['Senioren', 'Betreuung']
+        src: 'img/IMG-20250828-WA0012.jpg',
+        title: 'Schwere Möbel',
+        description: 'Auch schwere Möbelstücke transportieren wir sicher.',
+        tags: ['Schwer', 'Möbel']
       },
       {
-        src: 'img/readybilder/IMG-20240923-WA0095.jpg',
-        title: 'Möbellift Service',
-        description: 'Schwere Möbel? Kein Problem mit unserem Außenaufzug-Service.',
-        tags: ['Möbellift', 'Schwer']
-      },
-      {
-        src: 'neue_fotos/IMG-20240923-WA0096.jpg',
-        title: 'Lagerung Zwischenlager',
-        description: 'Sichere Zwischenlagerung in unserem klimatisierten Lager.',
-        tags: ['Lager', 'Lagerung']
-      },
-      {
-        src: 'neue_fotos/IMG-20240923-WA0097.jpg',
-        title: 'Komplettservice Wien',
-        description: 'Rundum-sorglos-Paket: Von der Planung bis zur Endabnahme.',
-        tags: ['Komplett', 'Service']
+        src: 'img/IMG-20250828-WA0013.jpg',
+        title: 'Komplettumzug Wien',
+        description: 'Von der ersten Kiste bis zum letzten Möbelstück.',
+        tags: ['Komplett', 'Wien']
       }
     ];
-    
+
     this.currentIndex = 0;
-    this.autoPlayInterval = null;
-    this.isAutoPlaying = true;
+    this.isPlaying = false;
+    this.intervalId = null;
     
     this.init();
   }
-  
+
   init() {
-    this.createGalleryCSS();
-    this.renderThumbnails();
+    this.createGallery();
     this.bindEvents();
-    this.updateDisplay();
-    this.startAutoPlay();
+    this.startAutoplay();
+    console.log('🖼️ Gallery loaded with', this.images.length, 'images');
   }
-  
-  createGalleryCSS() {
-    const style = document.createElement('style');
-    style.textContent = `
-      .modern-gallery {
-        max-width: 1000px;
-        margin: 0 auto;
-        background: linear-gradient(135deg, rgba(15, 19, 27, 0.95), rgba(31, 35, 50, 0.9));
-        border-radius: 20px;
-        padding: 24px;
-        border: 2px solid rgba(31,111,235,0.3);
-        box-shadow: 0 15px 35px rgba(0,0,0,0.4);
-      }
-      
-      .gallery-main {
-        display: grid;
-        grid-template-columns: 1fr 300px;
-        gap: 24px;
-        margin-bottom: 20px;
-      }
-      
-      .main-image-container {
-        position: relative;
-        border-radius: 16px;
-        overflow: hidden;
-        background: #000;
-      }
-      
-      .main-image {
-        width: 100%;
-        height: 400px;
-        object-fit: cover;
-        display: block;
-        transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      }
-      
-      .image-counter {
-        position: absolute;
-        top: 16px;
-        right: 16px;
-        background: rgba(0,0,0,0.8);
-        color: #fff;
-        padding: 8px 12px;
-        border-radius: 20px;
-        font-size: 12px;
-        font-weight: bold;
-        backdrop-filter: blur(4px);
-      }
-      
-      .navigation-arrows {
-        position: absolute;
-        top: 50%;
-        left: 0;
-        right: 0;
-        transform: translateY(-50%);
-        display: flex;
-        justify-content: space-between;
-        padding: 0 16px;
-        pointer-events: none;
-      }
-      
-      .nav-arrow {
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        border: none;
-        background: rgba(0,0,0,0.7);
-        color: #fff;
-        font-size: 24px;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        pointer-events: auto;
-        backdrop-filter: blur(4px);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-      
-      .nav-arrow:hover {
-        background: rgba(31,111,235,0.8);
-        transform: scale(1.1);
-      }
-      
-      .image-info {
-        padding: 20px;
-        background: rgba(255,255,255,0.02);
-        border-radius: 16px;
-        border: 1px solid rgba(255,255,255,0.1);
-      }
-      
-      .image-info h3 {
-        margin: 0 0 12px;
-        color: #ffd91a;
-        font-size: 18px;
-        font-weight: bold;
-      }
-      
-      .image-info p {
-        margin: 0 0 16px;
-        color: #e6edf3;
-        line-height: 1.5;
-        font-size: 14px;
-      }
-      
-      .image-tags {
-        display: flex;
-        gap: 8px;
-        flex-wrap: wrap;
-      }
-      
-      .tag {
-        background: linear-gradient(135deg, #1f6feb, #0969da);
-        color: #fff;
-        padding: 4px 8px;
-        border-radius: 12px;
-        font-size: 11px;
-        font-weight: bold;
-      }
-      
-      .thumbnail-strip {
-        overflow: hidden;
-        border-radius: 12px;
-      }
-      
-      .thumbnails {
-        display: flex;
-        gap: 8px;
-        padding: 12px;
-        background: rgba(255,255,255,0.05);
-        overflow-x: auto;
-        scroll-behavior: smooth;
-      }
-      
-      .thumbnails::-webkit-scrollbar {
-        height: 4px;
-      }
-      
-      .thumbnails::-webkit-scrollbar-track {
-        background: rgba(255,255,255,0.1);
-        border-radius: 2px;
-      }
-      
-      .thumbnails::-webkit-scrollbar-thumb {
-        background: #ffd91a;
-        border-radius: 2px;
-      }
-      
-      .thumbnail {
-        min-width: 80px;
-        height: 60px;
-        border-radius: 8px;
-        overflow: hidden;
-        cursor: pointer;
-        border: 2px solid transparent;
-        transition: all 0.3s ease;
-        opacity: 0.7;
-      }
-      
-      .thumbnail.active {
-        border-color: #ffd91a;
-        opacity: 1;
-        transform: scale(1.05);
-      }
-      
-      .thumbnail img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-      
-      /* Mobile Responsive */
-      @media (max-width: 768px) {
-        .gallery-main {
-          grid-template-columns: 1fr;
-          gap: 16px;
-        }
+
+  createGallery() {
+    const galleryHTML = `
+      <div class="modern-gallery">
+        <div class="gallery-header">
+          <h1>📸 Unsere Projektreferenzen</h1>
+          <p>Überzeugen Sie sich von der Qualität unserer Arbeit</p>
+        </div>
         
-        .image-info {
-          padding: 16px;
-        }
+        <div class="gallery-main">
+          <div class="gallery-display">
+            <div class="image-container">
+              <img id="galleryImage" src="${this.images[0].src}" alt="${this.images[0].title}" loading="lazy">
+              <div class="image-overlay">
+                <h3 id="imageTitle">${this.images[0].title}</h3>
+                <p id="imageDescription">${this.images[0].description}</p>
+                <div class="image-tags" id="imageTags">
+                  ${this.images[0].tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+                </div>
+              </div>
+            </div>
+            
+            <div class="gallery-controls">
+              <button class="control-btn prev-btn" id="prevBtn">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+                </svg>
+              </button>
+              
+              <div class="gallery-info">
+                <span id="imageCounter">${this.currentIndex + 1} / ${this.images.length}</span>
+                <button class="play-pause-btn" id="playPauseBtn">
+                  <svg class="play-icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M8 5v14l11-7z"/>
+                  </svg>
+                  <svg class="pause-icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style="display: none;">
+                    <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+                  </svg>
+                </button>
+              </div>
+              
+              <button class="control-btn next-btn" id="nextBtn">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+          
+          <div class="gallery-thumbnails">
+            <div class="thumbnails-container" id="thumbnailsContainer">
+              ${this.images.map((img, index) => `
+                <div class="thumbnail ${index === 0 ? 'active' : ''}" data-index="${index}">
+                  <img src="${img.src}" alt="${img.title}" loading="lazy">
+                  <div class="thumbnail-overlay">
+                    <span>${img.title}</span>
+                  </div>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+        </div>
         
-        .main-image {
-          height: 300px;
-        }
-        
-        .nav-arrow {
-          width: 40px;
-          height: 40px;
-          font-size: 20px;
-        }
-        
-        .modern-gallery {
-          padding: 16px;
-        }
-      }
-      
-      @media (max-width: 480px) {
-        .main-image {
-          height: 250px;
-        }
-        
-        .thumbnail {
-          min-width: 60px;
-          height: 45px;
-        }
-      }
-    `;
-    document.head.appendChild(style);
-  }
-  
-  renderThumbnails() {
-    const thumbnailsContainer = document.getElementById('thumbnails');
-    if (!thumbnailsContainer) return;
-    
-    thumbnailsContainer.innerHTML = this.images.map((image, index) => `
-      <div class="thumbnail ${index === 0 ? 'active' : ''}" data-index="${index}">
-        <img src="${image.src}" alt="${image.title}" loading="lazy" />
+        <div class="cta-section">
+          <h2>🎯 Überzeugt von unserer Qualität?</h2>
+          <p>Lassen Sie uns auch Ihr Projekt zum Erfolg machen!</p>
+          <div class="cta-buttons">
+            <a href="kontakt.html#anfrage" class="cta-btn primary">
+              📞 Jetzt kostenloses Angebot anfordern
+            </a>
+            <a href="tel:06641101057" class="cta-btn secondary">
+              📱 Sofort anrufen: 0664 1101057
+            </a>
+          </div>
+        </div>
       </div>
-    `).join('');
+    `;
+
+    // Insert into page
+    const container = document.querySelector('.container') || document.body;
+    container.innerHTML = galleryHTML;
   }
-  
+
   bindEvents() {
-    // Navigation Arrows
     const prevBtn = document.getElementById('prevBtn');
     const nextBtn = document.getElementById('nextBtn');
-    
-    if (prevBtn) prevBtn.addEventListener('click', () => this.previous());
-    if (nextBtn) nextBtn.addEventListener('click', () => this.next());
-    
-    // Thumbnail Clicks
+    const playPauseBtn = document.getElementById('playPauseBtn');
     const thumbnails = document.querySelectorAll('.thumbnail');
+
+    prevBtn.addEventListener('click', () => this.previousImage());
+    nextBtn.addEventListener('click', () => this.nextImage());
+    playPauseBtn.addEventListener('click', () => this.toggleAutoplay());
+
     thumbnails.forEach((thumb, index) => {
-      thumb.addEventListener('click', () => this.goToSlide(index));
+      thumb.addEventListener('click', () => this.goToImage(index));
     });
-    
-    // Keyboard Navigation
+
+    // Keyboard navigation
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'ArrowLeft') this.previous();
-      if (e.key === 'ArrowRight') this.next();
+      if (e.key === 'ArrowLeft') this.previousImage();
+      if (e.key === 'ArrowRight') this.nextImage();
       if (e.key === ' ') {
         e.preventDefault();
-        this.toggleAutoPlay();
-      }
-    });
-    
-    // Pause on hover
-    const gallery = document.getElementById('modernGallery');
-    if (gallery) {
-      gallery.addEventListener('mouseenter', () => this.pauseAutoPlay());
-      gallery.addEventListener('mouseleave', () => this.resumeAutoPlay());
-    }
-    
-    // Touch/Swipe Support
-    this.addTouchSupport();
-  }
-  
-  addTouchSupport() {
-    const mainImage = document.getElementById('mainImage');
-    if (!mainImage) return;
-    
-    let startX = 0;
-    let startY = 0;
-    
-    mainImage.addEventListener('touchstart', (e) => {
-      startX = e.touches[0].clientX;
-      startY = e.touches[0].clientY;
-    });
-    
-    mainImage.addEventListener('touchend', (e) => {
-      const endX = e.changedTouches[0].clientX;
-      const endY = e.changedTouches[0].clientY;
-      
-      const deltaX = endX - startX;
-      const deltaY = endY - startY;
-      
-      // Nur horizontale Swipes
-      if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 50) {
-        if (deltaX > 0) {
-          this.previous();
-        } else {
-          this.next();
-        }
+        this.toggleAutoplay();
       }
     });
   }
-  
-  updateDisplay() {
-    const image = this.images[this.currentIndex];
-    if (!image) return;
-    
-    // Update main image
-    const mainImage = document.getElementById('mainImage');
-    if (mainImage) {
-      mainImage.style.opacity = '0';
-      setTimeout(() => {
-        mainImage.src = image.src;
-        mainImage.alt = image.title;
-        mainImage.style.opacity = '1';
-      }, 200);
-    }
-    
-    // Update info
-    const title = document.getElementById('imageTitle');
-    const description = document.getElementById('imageDescription');
-    const tag1 = document.getElementById('imageTag1');
-    const tag2 = document.getElementById('imageTag2');
-    
-    if (title) title.textContent = image.title;
-    if (description) description.textContent = image.description;
-    if (tag1) tag1.textContent = image.tags[0];
-    if (tag2) tag2.textContent = image.tags[1] || '';
-    
-    // Update counter
-    const currentNumber = document.getElementById('currentImageNumber');
-    const totalImages = document.getElementById('totalImages');
-    
-    if (currentNumber) currentNumber.textContent = this.currentIndex + 1;
-    if (totalImages) totalImages.textContent = this.images.length;
-    
-    // Update thumbnails
-    const thumbnails = document.querySelectorAll('.thumbnail');
-    thumbnails.forEach((thumb, index) => {
-      thumb.classList.toggle('active', index === this.currentIndex);
-    });
-    
-    // Scroll thumbnail into view
-    const activeThumbnail = document.querySelector('.thumbnail.active');
-    if (activeThumbnail) {
-      activeThumbnail.scrollIntoView({ 
-        behavior: 'smooth', 
-        block: 'nearest', 
-        inline: 'center' 
-      });
-    }
-  }
-  
-  next() {
-    this.currentIndex = (this.currentIndex + 1) % this.images.length;
-    this.updateDisplay();
-  }
-  
-  previous() {
-    this.currentIndex = (this.currentIndex - 1 + this.images.length) % this.images.length;
-    this.updateDisplay();
-  }
-  
-  goToSlide(index) {
+
+  goToImage(index) {
     this.currentIndex = index;
     this.updateDisplay();
   }
-  
-  startAutoPlay() {
-    this.pauseAutoPlay();
-    if (this.isAutoPlaying) {
-      this.autoPlayInterval = setInterval(() => {
-        this.next();
-      }, 5000);
-    }
+
+  nextImage() {
+    this.currentIndex = (this.currentIndex + 1) % this.images.length;
+    this.updateDisplay();
   }
-  
-  pauseAutoPlay() {
-    if (this.autoPlayInterval) {
-      clearInterval(this.autoPlayInterval);
-      this.autoPlayInterval = null;
-    }
+
+  previousImage() {
+    this.currentIndex = (this.currentIndex - 1 + this.images.length) % this.images.length;
+    this.updateDisplay();
   }
-  
-  resumeAutoPlay() {
-    if (this.isAutoPlaying) {
-      this.startAutoPlay();
-    }
+
+  updateDisplay() {
+    const img = this.images[this.currentIndex];
+    
+    document.getElementById('galleryImage').src = img.src;
+    document.getElementById('galleryImage').alt = img.title;
+    document.getElementById('imageTitle').textContent = img.title;
+    document.getElementById('imageDescription').textContent = img.description;
+    document.getElementById('imageCounter').textContent = `${this.currentIndex + 1} / ${this.images.length}`;
+    
+    // Update tags
+    document.getElementById('imageTags').innerHTML = 
+      img.tags.map(tag => `<span class="tag">${tag}</span>`).join('');
+    
+    // Update thumbnails
+    document.querySelectorAll('.thumbnail').forEach((thumb, index) => {
+      thumb.classList.toggle('active', index === this.currentIndex);
+    });
   }
-  
-  toggleAutoPlay() {
-    this.isAutoPlaying = !this.isAutoPlaying;
-    if (this.isAutoPlaying) {
-      this.startAutoPlay();
+
+  startAutoplay() {
+    this.isPlaying = true;
+    this.intervalId = setInterval(() => this.nextImage(), 4000);
+    this.updatePlayPauseButton();
+  }
+
+  stopAutoplay() {
+    this.isPlaying = false;
+    if (this.intervalId) {
+      clearInterval(this.intervalId);
+      this.intervalId = null;
+    }
+    this.updatePlayPauseButton();
+  }
+
+  toggleAutoplay() {
+    if (this.isPlaying) {
+      this.stopAutoplay();
     } else {
-      this.pauseAutoPlay();
+      this.startAutoplay();
+    }
+  }
+
+  updatePlayPauseButton() {
+    const playIcon = document.querySelector('.play-icon');
+    const pauseIcon = document.querySelector('.pause-icon');
+    
+    if (this.isPlaying) {
+      playIcon.style.display = 'none';
+      pauseIcon.style.display = 'block';
+    } else {
+      playIcon.style.display = 'block';
+      pauseIcon.style.display = 'none';
     }
   }
 }
 
-// Initialize when DOM is loaded
-document.addEventListener('DOMContentLoaded', () => {
+// Styles für die Galerie
+const galleryStyles = `
+<style>
+.modern-gallery {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-family: 'Arial', sans-serif;
+}
+
+.gallery-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.gallery-header h1 {
+  font-size: 2.5rem;
+  color: #ffd91a;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.gallery-header p {
+  font-size: 1.2rem;
+  color: #ccc;
+}
+
+.gallery-main {
+  margin-bottom: 3rem;
+}
+
+.gallery-display {
+  margin-bottom: 2rem;
+}
+
+.image-container {
+  position: relative;
+  background: linear-gradient(135deg, #1a1a2e, #16213e);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.image-container img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  display: block;
+}
+
+.image-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0,0,0,0.8));
+  padding: 2rem;
+  color: white;
+}
+
+.image-overlay h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #ffd91a;
+}
+
+.image-overlay p {
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+.image-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tag {
+  background: rgba(255,217,26,0.2);
+  color: #ffd91a;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  border: 1px solid rgba(255,217,26,0.3);
+}
+
+.gallery-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background: rgba(11,14,20,0.9);
+  border-radius: 12px;
+  margin-top: 1rem;
+}
+
+.control-btn {
+  background: rgba(255,217,26,0.2);
+  border: 1px solid rgba(255,217,26,0.5);
+  color: #ffd91a;
+  padding: 0.75rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.control-btn:hover {
+  background: rgba(255,217,26,0.4);
+  transform: scale(1.05);
+}
+
+.gallery-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: #fff;
+}
+
+.play-pause-btn {
+  background: rgba(31,111,235,0.2);
+  border: 1px solid rgba(31,111,235,0.5);
+  color: #1f6feb;
+  padding: 0.75rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.play-pause-btn:hover {
+  background: rgba(31,111,235,0.4);
+}
+
+.gallery-thumbnails {
+  background: rgba(11,14,20,0.5);
+  border-radius: 12px;
+  padding: 1rem;
+}
+
+.thumbnails-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+}
+
+.thumbnail {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.thumbnail.active {
+  border-color: #ffd91a;
+  transform: scale(1.05);
+}
+
+.thumbnail img {
+  width: 100%;
+  height: 80px;
+  object-fit: cover;
+}
+
+.thumbnail-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0,0,0,0.8));
+  padding: 0.5rem;
+  color: white;
+  font-size: 0.8rem;
+}
+
+.cta-section {
+  text-align: center;
+  background: linear-gradient(135deg, #1a1a2e, #16213e);
+  padding: 3rem 2rem;
+  border-radius: 16px;
+  border: 2px solid rgba(255,217,26,0.3);
+}
+
+.cta-section h2 {
+  color: #ffd91a;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.cta-section p {
+  color: #ccc;
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.cta-btn {
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  border: 2px solid;
+}
+
+.cta-btn.primary {
+  background: linear-gradient(135deg, #ffd91a, #ffed4a);
+  color: #111;
+  border-color: #ffd91a;
+}
+
+.cta-btn.primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(255,217,26,0.4);
+}
+
+.cta-btn.secondary {
+  background: transparent;
+  color: #1f6feb;
+  border-color: #1f6feb;
+}
+
+.cta-btn.secondary:hover {
+  background: rgba(31,111,235,0.1);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .modern-gallery {
+    padding: 1rem;
+  }
+  
+  .gallery-header h1 {
+    font-size: 2rem;
+  }
+  
+  .image-container img {
+    height: 250px;
+  }
+  
+  .gallery-controls {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  
+  .thumbnails-container {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  }
+  
+  .cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .cta-btn {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+</style>
+`;
+
+// Initialize gallery when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+  // Add styles to head
+  document.head.insertAdjacentHTML('beforeend', galleryStyles);
+  
+  // Initialize gallery
   new ModernGallery();
+  
+  console.log('✅ ModernGallery initialisiert - Nur existierende Bilder!');
 });

@@ -20,7 +20,6 @@ const urlsToCache = [
   '/entruempelung.html',
   '/montage.html',
   '/seniorenumzuege.html',
-  '/lager-service.html',
   '/wohnungsuebergabe.html',
   '/kontakt.html',
   // Legal Pages

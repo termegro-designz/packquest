@@ -121,7 +121,7 @@ class TermegroFooter {
         <!-- COPYRIGHT BAR -->
         <div class="copyright-bar">
           <div class="copyright-container">
-            <span>&copy; 2024 TERMEGRO DESIGNS. Alle Rechte vorbehalten.</span>
+            <span>&copy; 2025 TERMEGRO DESIGNS. Alle Rechte vorbehalten.</span>
             <span class="powered-by">Powered by Innovation & Passion</span>
           </div>
         </div>

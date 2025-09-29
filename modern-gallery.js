@@ -1,54 +1,27 @@
 // 🖼️ PACKQUEST PROJEKT GALERIE - Nur existierende Bilder!
 class ModernGallery {
   constructor() {
-    // NUR BILDER DIE WIRKLICH EXISTIEREN!
+    // NUR BILDER DIE WIRKLICH EXISTIEREN! + SEO Alt-Attribute
     this.images = [
       {
-        src: 'img/IMG-20250925-WA0022.jpg',
-        title: 'Professioneller Umzug Wien',
-        description: 'Sorgfältig verpackt, sicher transportiert – Ihr Umzug in besten Händen.',
+        src: 'img/readybilder/umzug_wien.png',
+        title: 'Umzug Wien Professionell',
+        description: 'Komplette Wohnungsumzüge durch PackQuest Experten in Wien. 2 Mann+LKW ab 60€/h.',
+        alt: 'Umzugsunternehmen Wien PackQuest - Professioneller Wohnungsumzug mit 2 Mann und LKW',
         tags: ['Umzug', 'Wien']
-      },
-      {
-        src: 'img/IMG-20250925-WA0027.jpg',
-        title: 'Optimale LKW-Beladung',
-        description: 'Platzsparend beladen – spart Zeit, Nerven und Ihr Geld.',
-        tags: ['Transport', 'LKW']
-      },
-      {
-        src: 'img/IMG-20250925-WA0023.jpg',
-        title: 'Saubere Entrümpelung',
-        description: 'Besenrein übergeben – Hausverwaltungen vertrauen uns.',
-        tags: ['Entrümpelung', 'Sauber']
-      },
-      {
-        src: 'img/IMG-20250925-WA0028.jpg',
-        title: 'Möbelmontage Profi',
-        description: 'Professioneller Aufbau aller Möbel – schnell und zuverlässig.',
-        tags: ['Montage', 'Möbel']
-      },
-      {
-        src: 'img/IMG-20250925-WA0029.jpg',
-        title: 'Küchenmontage Premium',
-        description: 'Maßgenaue Küchenplanung und professionelle Montage.',
-        tags: ['Küche', 'Montage']
       },
       {
         src: 'img/readybilder/klavier_umzug_wien.png',
-        title: 'Klaviertransport Wien',
-        description: 'Sensible Instrumente sicher transportiert – Ihre Musik in sicheren Händen.',
+        title: 'Klaviertransport Wien Spezialist',
+        description: 'Sensible Klaviere und Flügel sicher transportiert – Ihre wertvollen Instrumente in Expertenhänden.',
+        alt: 'Klaviertransport Wien PackQuest - Spezialtransport für Klaviere und Flügel',
         tags: ['Klavier', 'Transport']
       },
       {
-        src: 'img/readybilder/umzug_wien.png',
-        title: 'Umzug Wien Profi',
-        description: 'Von A bis Z – komplette Wohnungsumzüge durch unsere Experten.',
-        tags: ['Umzug', 'Wien']
-      },
-      {
         src: 'img/readybilder/räumung_wien.png',
-        title: 'Räumung Wien',
-        description: 'Professionelle Entrümpelung – besenrein übergeben.',
+        title: 'Entrümpelung Wien Besenrein',
+        description: 'Professionelle Entrümpelung Wien ab 35€/m³ – besenrein übergeben.',
+        alt: 'Entrümpelung Wien PackQuest - Besenreine Haushaltsauflösung und Räumung',
         tags: ['Räumung', 'Entrümpelung']
       },
       {

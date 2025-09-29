@@ -13,7 +13,11 @@
     0 5px 15px rgba(31,111,235,0.3),
     inset 0 1px 0 rgba(255,255,255,0.1);
   backdrop-filter: blur(10px);
-  animation: gameContainerGlow 3s ease-in-out infinite alternate;
+  /* Animation nur bei hover für Performance */
+}
+
+.game-container:hover {
+  animation: gameContainerGlow 2s ease-in-out infinite alternate;
 }
 
 @keyframes gameContainerGlow {

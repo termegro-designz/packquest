@@ -31,13 +31,17 @@ const urlsToCache = [
   'https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Press+Start+2P&display=swap'
 ];
 
-// Install Event - Cache Resources
+// Install Event - Cache Resources (optimiert)
 self.addEventListener('install', function(event) {
   event.waitUntil(
     caches.open(CACHE_NAME)
       .then(function(cache) {
         console.log('PackQuest: Cache opened');
-        return cache.addAll(urlsToCache.map(url => {
+        // Cache nur kritische Ressourcen beim Install
+        const criticalUrls = urlsToCache.filter(url => 
+          !url.includes('.jpg') && !url.includes('fonts.googleapis.com')
+        );
+        return cache.addAll(criticalUrls.map(url => {
           return new Request(url, { mode: 'no-cors' });
         }));
       })

@@ -1,15 +1,17 @@
 // PackQuest Website Scripts
 // Performance und UX Optimierungen
 
-// Performance Monitoring
+// Performance Monitoring (optimiert)
 if ('performance' in window) {
   window.addEventListener('load', () => {
+    // Verwende performance.now() für genauere Messung
     setTimeout(() => {
       const loadTime = performance.timing.loadEventEnd - performance.timing.navigationStart;
-      if (loadTime > 3000) {
-        console.warn('Slow loading detected:', loadTime + 'ms');
+      // Nur warnen wenn extrem langsam (> 8 Sekunden)
+      if (loadTime > 8000) {
+        console.info('Loading time:', Math.round(loadTime/1000) + 's');
       }
-    }, 0);
+    }, 100); // Kleine Verzögerung für vollständige Ladung
   });
 }
 
@@ -34,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
-// Lazy Loading für Bilder (fallback)
+// Lazy Loading für Bilder (optimiert)
 if ('IntersectionObserver' in window) {
   const imageObserver = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
@@ -47,6 +49,11 @@ if ('IntersectionObserver' in window) {
         }
       }
     });
+  }, {
+    // Performance: Nur wenn 10% sichtbar
+    threshold: 0.1,
+    // Performance: 50px Vorlaufbereich
+    rootMargin: '50px'
   });
 
   const lazyImages = document.querySelectorAll('img[data-src]');
@@ -344,8 +351,8 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('PackQuest 2.0 High Score:', highScore);
   }
   
-  // Update game stats periodically
-  setInterval(updateGameStats, 1000);
+  // Update game stats weniger häufig für Performance
+  setInterval(updateGameStats, 2000);
   
   // Game assets werden erst beim Spiel-Start geladen
   setupContactSubmission();

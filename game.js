@@ -458,21 +458,34 @@ class PackQuestGame {
   update(timestamp) {
     if (!this.gameRunning) return;
     
+    // FPS-Limitierung für Performance (30 FPS statt 60)
+    if (timestamp - this.lastUpdate < 33) {
+      this.gameLoop = requestAnimationFrame((timestamp) => this.update(timestamp));
+      return;
+    }
+    
     // Process mobile input
     this.processMobileInput();
     
     const deltaTime = timestamp - this.lastUpdate;
     this.lastUpdate = timestamp;
     
+    // Optimierte Update-Reihenfolge (wichtigste zuerst)
     this.updatePlayer(deltaTime);
+    this.checkCollisions(); // Frühzeitig prüfen
     this.updateObstacles(deltaTime);
     this.updatePowerUps(deltaTime);
-    this.updateParticles(deltaTime);
-    this.updateFloatingTexts(deltaTime);
-    this.updateCamera(deltaTime);
-    this.checkCollisions();
     
+    // Weniger kritische Updates nur jedes 2. Frame
+    this.frameCount = (this.frameCount || 0) + 1;
+    if (this.frameCount % 2 === 0) {
+      this.updateParticles(deltaTime);
+      this.updateFloatingTexts(deltaTime);
+    }
+    
+    this.updateCamera(deltaTime);
     this.draw();
+    
     this.gameLoop = requestAnimationFrame((timestamp) => this.update(timestamp));
   }
 
@@ -955,16 +968,25 @@ class PackQuestGame {
   drawBackground() {
     const levelInfo = this.levelData[this.currentLevel - 1];
     
-    // Background gradient
-    const gradient = this.ctx.createLinearGradient(0, 0, 0, this.canvas.height);
-    gradient.addColorStop(0, levelInfo.background);
-    gradient.addColorStop(1, '#0a0e16');
+    // Performance: Cache gradient wenn nicht vorhanden
+    if (!this.cachedGradient || this.lastLevel !== this.currentLevel) {
+      this.cachedGradient = this.ctx.createLinearGradient(0, 0, 0, this.canvas.height);
+      this.cachedGradient.addColorStop(0, levelInfo.background);
+      this.cachedGradient.addColorStop(1, '#0a0e16');
+      this.lastLevel = this.currentLevel;
+    }
     
-    this.ctx.fillStyle = gradient;
+    this.ctx.fillStyle = this.cachedGradient;
     this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
     
-    // Animated background elements
-    this.backgroundElements.forEach(element => {
+    // Performance: Weniger background elements rendern
+    const visibleElements = this.backgroundElements.filter(element => 
+      element.y > -element.size && element.y < this.canvas.height + element.size
+    );
+    
+    // Batch-Rendering für bessere Performance
+    this.ctx.fillStyle = '#ffffff';
+    visibleElements.forEach(element => {
       element.y += element.speed;
       if (element.y > this.canvas.height) {
         element.y = -element.size;
@@ -972,7 +994,6 @@ class PackQuestGame {
       }
       
       this.ctx.globalAlpha = element.opacity;
-      this.ctx.fillStyle = '#ffffff';
       this.ctx.fillRect(element.x, element.y, element.size, element.size);
     });
     

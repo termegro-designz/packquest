@@ -19,10 +19,11 @@ document.addEventListener('DOMContentLoaded', function() {
     width: 100%;
     height: 100%;
     background: rgba(0,0,0,0.7);
-    z-index: 999;
+    z-index: 1000;
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s ease;
+    pointer-events: none;
   `;
   document.body.appendChild(overlay);
   
@@ -50,6 +51,7 @@ document.addEventListener('DOMContentLoaded', function() {
       menu.classList.add('mobile-open');
       overlay.style.opacity = '1';
       overlay.style.visibility = 'visible';
+      overlay.style.pointerEvents = 'auto';
       document.body.style.overflow = 'hidden';
       hamburger.innerHTML = '✕';
       hamburger.setAttribute('aria-label', 'Menü schließen');
@@ -58,6 +60,7 @@ document.addEventListener('DOMContentLoaded', function() {
       menu.classList.remove('mobile-open');
       overlay.style.opacity = '0';
       overlay.style.visibility = 'hidden';
+      overlay.style.pointerEvents = 'none';
       document.body.style.overflow = '';
       hamburger.innerHTML = '☰';
       hamburger.setAttribute('aria-label', 'Menü öffnen');
@@ -80,24 +83,46 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
   
-  // Menu link clicks
-  const menuLinks = menu.querySelectorAll('a');
-  menuLinks.forEach(link => {
-    link.addEventListener('click', function(e) {
-      console.log('🔗 Menu link clicked:', this.href);
+  // Menu link clicks - DIREKTES HANDLING
+  function setupMenuLinks() {
+    const menuLinks = menu.querySelectorAll('a');
+    console.log('🔗 Found', menuLinks.length, 'menu links');
+    
+    menuLinks.forEach((link, index) => {
+      // Remove any existing listeners
+      link.removeEventListener('click', handleLinkClick);
       
-      // Visual feedback
-      this.style.background = 'rgba(255,217,26,0.6)';
-      this.style.transform = 'scale(0.95)';
+      // Add fresh listener
+      link.addEventListener('click', handleLinkClick);
       
-      // Close menu after short delay
-      setTimeout(() => {
-        if (mobileMenuOpen) {
-          toggleMobileMenu();
-        }
-      }, 200);
+      // Force clickable styles
+      link.style.pointerEvents = 'auto';
+      link.style.zIndex = '1006';
+      link.style.position = 'relative';
+      
+      console.log(`📎 Link ${index + 1} setup:`, link.textContent.trim());
     });
-  });
+  }
+  
+  function handleLinkClick(e) {
+    console.log('🎯 LINK CLICKED:', this.href, this.textContent.trim());
+    
+    // Visual feedback
+    this.style.background = 'rgba(255,217,26,0.8)';
+    this.style.color = '#111';
+    this.style.transform = 'scale(0.95)';
+    
+    // Close menu immediately
+    if (mobileMenuOpen) {
+      toggleMobileMenu();
+    }
+    
+    // Let browser handle navigation normally
+    // DON'T prevent default!
+  }
+  
+  // Setup links initially
+  setupMenuLinks();
   
   // Escape key to close
   document.addEventListener('keydown', function(e) {
@@ -116,6 +141,7 @@ document.addEventListener('DOMContentLoaded', function() {
         opacity: 1 !important;
         visibility: visible !important;
         pointer-events: auto !important;
+        z-index: 1004 !important;
       }
       
       .menu.mobile-open a {
@@ -128,6 +154,8 @@ document.addEventListener('DOMContentLoaded', function() {
         transition: all 0.2s ease !important;
         background: rgba(255,255,255,0.1) !important;
         border: 1px solid rgba(255,217,26,0.3) !important;
+        position: relative !important;
+        z-index: 1005 !important;
       }
       
       .menu.mobile-open a:hover,

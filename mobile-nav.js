@@ -13,6 +13,9 @@ class MobileNavigation {
     // Add event listeners to all hamburger buttons
     this.initHamburgerButtons();
     
+    // Add navigation link listeners for mobile
+    this.initMobileNavLinks();
+    
     // Add escape key listener
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && this.isOpen) {
@@ -78,6 +81,35 @@ class MobileNavigation {
     openMenus.forEach(menu => menu.classList.remove('open'));
     this.overlay.classList.remove('active');
     document.body.style.overflow = ''; // Restore scrolling
+  }
+
+  initMobileNavLinks() {
+    // Direkte Navigation ohne Event-Prevention
+    document.addEventListener('click', (e) => {
+      const navLink = e.target.closest('.menu a');
+      if (navLink && this.isOpen) {
+        // Visuelles Feedback
+        navLink.style.background = 'rgba(255,217,26,0.3)';
+        
+        // Menu nach kurzer Verzögerung schließen (für Animation)
+        setTimeout(() => {
+          this.closeMenu();
+        }, 150);
+        
+        // Link normal funktionieren lassen (nicht preventDefault!)
+      }
+    });
+
+    // Touch feedback für mobile
+    document.addEventListener('touchstart', (e) => {
+      const navLink = e.target.closest('.menu a');
+      if (navLink) {
+        navLink.style.background = 'rgba(31,111,235,0.3)';
+        setTimeout(() => {
+          navLink.style.background = '';
+        }, 200);
+      }
+    });
   }
 }
 

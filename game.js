@@ -450,12 +450,51 @@ class PackQuestGame {
       return;
     }
     
+    // Setup responsive canvas
+    this.setupResponsiveCanvas();
+    
     this.setupMobileControls(); // Mobile Controls initialisieren
     this.setupLevel();
     this.lastUpdate = performance.now();
     this.gameLoop = requestAnimationFrame((timestamp) => this.update(timestamp));
     
     console.log('🎮 Spiel gestartet!');
+  }
+  
+  setupResponsiveCanvas() {
+    const canvas = this.canvas;
+    const container = canvas.parentElement;
+    
+    // Set canvas actual size (for game logic)
+    const gameWidth = 800;
+    const gameHeight = 500;
+    
+    canvas.width = gameWidth;
+    canvas.height = gameHeight;
+    
+    // Scale canvas for display
+    this.scaleCanvas();
+    
+    // Listen for window resize
+    window.addEventListener('resize', () => this.scaleCanvas());
+  }
+  
+  scaleCanvas() {
+    const canvas = this.canvas;
+    const container = canvas.parentElement;
+    
+    // Get container size
+    const containerWidth = container.clientWidth;
+    const maxHeight = window.innerHeight * 0.5; // Max 50% of viewport height
+    
+    // Calculate scale to fit container width
+    const scale = Math.min(containerWidth / 800, maxHeight / 500, 1);
+    
+    // Apply CSS scaling
+    canvas.style.width = (800 * scale) + 'px';
+    canvas.style.height = (500 * scale) + 'px';
+    
+    console.log(`🎮 Canvas responsive skaliert: ${scale.toFixed(2)}x (${canvas.style.width} x ${canvas.style.height})`);
   }
   
   stop() {
@@ -521,6 +560,9 @@ class PackQuestGame {
   updatePlayer(deltaTime) {
     const baseSpeed = this.player.speed;
     const currentSpeed = this.player.turboActive ? baseSpeed * 2 : baseSpeed;
+    
+    // Mobile controls processing
+    this.processMobileInput();
     
     // Keyboard movement
     if (this.keys['ArrowLeft'] || this.keys['a'] || this.keys['A']) {
